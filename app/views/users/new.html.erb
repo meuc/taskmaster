@@ -1,0 +1,34 @@
+<%= form_for @user do |form| %>
+	<div class="field">
+		<%= form.label :first_name %>
+		<%= form.text_field :first_name %>
+		
+	</div>
+	<div class="field">
+		<%= form.label :last_name %>
+		<%= form.text_field :last_name %>
+	</div>
+	
+	<div class="field">
+		<%= form.label :email %>
+		<%= form.email_field :email %>
+	</div>
+	
+	<div class="field">
+		<%= form.label :birthdate %>
+		<%= form.date_field :birthdate %>
+	</div>
+	
+	<div class="field">
+		<%= form.label :gender %>
+		<%= form.select(:gender) do %>
+			<% [['Female', 'female'], ['Male', 'male'], ['Other', 'other']].each do |c| -%>
+				<%= content_tag(:option, c.first, value: c.last) %>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="field">
+		<%= form.submit %>
+	</div>
+<% end %>
