@@ -1,4 +1,15 @@
 <%= form_for @user do |form| %>
+	<% if @user.errors.present? %>
+		<p>Ups, something went wrong:</p>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li class="error">
+					<%= message %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+
 	<div class="field">
 		<%= form.label :first_name %>
 		<%= form.text_field :first_name %>
