@@ -23,4 +23,3 @@ class User < ActiveRecord::Base
 end
 
 # TODO: confirmation emails to avoid fake email stuff
-
