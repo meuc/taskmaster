@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   resources :users 
   resources :groups, only: [:new, :create, :show, :destroy]
-  # TODO: add edit, delete
+  # TODO: add edit
+  resources :tasks
   
   root to: "home#index"
 end
