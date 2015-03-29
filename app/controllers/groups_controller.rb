@@ -13,11 +13,22 @@ class GroupsController < ApplicationController
   def create
     group_params = params.require(:group).permit(:name)
     @group = Group.new(group_params)
-    
-    if @group.save
-      current_user.update group_id: @group.id
+
+    users = params[:users].split(", ").map do |email|
+      User.find_by_email(email)
+    end
+
+    if @group.valid? && users.all?(&:present?)
+      @group.save
+      current_user.update!(group_id: @group.id)
+
+      users.each do |user|
+        user.update(group_id: id)
+      end
+
       redirect_to @group
     else
+      flash[:alert] = "There was an error"
       render :new
     end
   end
