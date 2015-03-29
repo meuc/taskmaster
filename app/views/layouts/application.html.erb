@@ -6,10 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
-
+	
+	<% if user_signed_in? && !current_user.group? %>
+		<%= link_to "Create a group", new_group_path %>
+	<% end %>
+	
 	<div class="main">
 		<%= yield %>
 	</div>

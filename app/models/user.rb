@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
       first_name + "'s"
     end
   end
+  
+  def group?
+    group_id.present?
+  end
 end
 
 # TODO: confirmation emails to avoid fake email stuff
