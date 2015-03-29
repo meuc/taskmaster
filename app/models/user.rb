@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { 
     with: /.+@.+\..+/,
     message: "has incorrect format" 
-  }
+    }, uniqueness: true
   
   validates :gender, presence: true
   validates :birthdate, presence: true

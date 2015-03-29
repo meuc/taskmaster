@@ -1,3 +1,5 @@
 <h1>
 	This is <%= @user.with_or_without_s %> profile
 </h1>
+
+<%= link_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?"} %>
