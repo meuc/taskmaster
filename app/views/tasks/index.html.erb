@@ -2,18 +2,28 @@
 
 <h2>Big Tasks</h2>
 <h3>Daily</h3>
+
+<% if @tasks["big"] %>
 	<%= render partial: "task_list", locals: { tasks: @tasks["big"]["daily"] } %>
 <h3>Weekly</h3>
 	<%= render partial: "task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
 <h3>Monthly</h3>
 	<%= render partial: "task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
-
+<% else %>
+	<p>You have no big tasks yet.</p>
+<% end %>
 <hr>
 
 <h2>Small Tasks</h2>
+
+<% if @tasks["small"] %>
 <h3>Daily</h3>
 	<%= render partial: "task_list", locals: { tasks: @tasks["small"]["daily"] } %>
 <h3>Weekly</h3>
 	<%= render partial: "task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
 <h3>Monthly</h3>
 	<%= render partial: "task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
+	
+<% else %>
+	<p>You have no small tasks yet.</p>
+<% end %>
