@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     group_params = params.require(:group).permit(:name)
     @group = Group.new(group_params)
 
-    users = params[:users].split(", ").map do |email|
+    users = params[:users].map do |email|
       User.find_by_email(email)
     end
 
@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
       current_user.update!(group_id: @group.id)
 
       users.each do |user|
-        user.update(group_id: id)
+        user.update(group_id: @group.id)
       end
 
       redirect_to @group
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
       render :new
     end
   end
-  
+    
   def show
     @group = Group.find(params[:id])
     
