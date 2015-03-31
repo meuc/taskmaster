@@ -1,0 +1,13 @@
+<% if tasks.present? %>
+<ul>
+	<% tasks.each do |task| %>
+		<li>
+			<%= task.name %>
+			<%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?"} %>
+			<%= link_to "Edit", edit_task_path(task) %>		
+		</li>
+	<% end %>
+</ul>
+<% else %>
+	<p>No tasks of this size there yet.</p>
+<% end %>

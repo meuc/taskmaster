@@ -1,0 +1,30 @@
+<%= form_for @task do |f| %>
+	<div class="field">	
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	
+	<div class="field">	
+		<%= f.label :size %>
+		<%= f.select :size do %>
+			<% [['Big', 'big'], ['Small', 'small']].each do |f| -%>
+				<%= content_tag :option, f.first, value: f.last, selected: @task.size == f.last %>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div class="field">	
+		<%= f.label :interval %>
+		<%= f.select :interval do %>
+			<% [['Daily', 'daily'], ['Weekly', 'weekly'], ['Monthly', 'monthly']].each do |f| -%>
+				<%= content_tag :option, f.first, value: f.last, selected: @task.interval == f.last %>
+			<% end %>
+		<% end %>
+	</div>
+	
+	
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+	
+<% end %>

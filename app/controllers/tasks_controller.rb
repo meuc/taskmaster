@@ -35,6 +35,23 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
   
+  def edit
+    @task = Task.find(params[:id])
+  end
+  
+  def update
+    task_params = params.require(:task).permit( :name,
+                                                :size,
+                                                :interval)
+    @task = Task.find(params[:id])
+        
+    if @task.update(task_params) 
+      redirect_to tasks_path
+    else
+      render :edit
+    end
+  end
+  
   private
   
   def require_group!

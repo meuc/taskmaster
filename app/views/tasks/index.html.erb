@@ -1,55 +1,19 @@
+<%= link_to "Add new task", new_task_path %>
+
 <h2>Big Tasks</h2>
 <h3>Daily</h3>
-<ul>
-	<% @tasks["big"]["daily"].each do |task| %>
-		<li>
-			<%= task.name %>
-		</li>
-	<% end %>
-</ul>
+	<%= render partial: "task_list", locals: { tasks: @tasks["big"]["daily"] } %>
 <h3>Weekly</h3>
-<ul>
-	<% @tasks["big"]["weekly"].each do |task| %>
-		<li>
-			<%= task.name %>
-		</li>
-	<% end %>
-</ul>
+	<%= render partial: "task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
 <h3>Monthly</h3>
-<ul>
-	<% @tasks["big"]["monthly"].each do |task| %>
-		<li>
-			<%= task.name %>
-		</li>
-	<% end %>
-</ul>
+	<%= render partial: "task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
 
 <hr>
 
 <h2>Small Tasks</h2>
 <h3>Daily</h3>
-<ul>
-	<% @tasks["small"]["daily"].each do |task| %>
-		<li>
-			<%= task.name %>
-		</li>
-	<% end %>
-</ul>
+	<%= render partial: "task_list", locals: { tasks: @tasks["small"]["daily"] } %>
 <h3>Weekly</h3>
-<ul>
-	<% @tasks["small"]["weekly"].each do |task| %>
-		<li>
-			<%= task.name %>
-		</li>
-	<% end %>
-</ul>
+	<%= render partial: "task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
 <h3>Monthly</h3>
-<ul>
-	<% @tasks["small"]["monthly"].each do |task| %>
-		<li>
-			<%= task.name %>
-		</li>
-	<% end %>
-</ul>
-
-<%= link_to "Add new task", new_task_path %>
+	<%= render partial: "task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
