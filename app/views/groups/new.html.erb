@@ -5,13 +5,21 @@
 		<%= f.text_field :name %>
 	</div>
 	
+	<p>Add people by email address.</p>
+	
 	<div class="field">
 		<%= label_tag :users %>
-		<%= text_area_tag :users %>
+		
+		<div class="adding-fields">
+			<div class="add-user-field">
+				<%= text_field_tag "users[]" %>
+				<button type="button">Remove</button>
+			</div>
+		</div>
+		
+		<button type="button" class="add-user-button">Add user field</button>
 	</div>
-	
-<!--TODO: change into 1 per line with + button kinda thing -->
-	
+		
 	<div class="actions">
 		<%= f.submit %>
 	</div>
