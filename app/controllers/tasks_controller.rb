@@ -52,6 +52,33 @@ class TasksController < ApplicationController
     end
   end
   
+  def add_suggested 
+    
+  end
+  
+  def create_suggested
+    tasks_we_want = []
+    
+    params.each do |key, value|
+      if value == "1"
+        tasks_we_want << key
+        # "mini shovels" take this thing abd put it in (way arrows are pointed)
+      end
+    end
+      
+    tasks_we_want.each do |name|
+      task = Task.new
+      task.name = name.humanize
+      task.size = params[:"size_#{name}"]
+      task.interval = params[:"interval_#{name}"]
+      task.user = current_user
+      task.group = current_user.group
+      task.save!
+    end
+    
+    redirect_to tasks_path
+  end
+  
   private
   
   def require_group!

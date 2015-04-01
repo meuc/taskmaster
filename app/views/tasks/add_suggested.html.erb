@@ -1,0 +1,21 @@
+<%= form_tag tasks_add_suggested_path, method: "post" do %>
+	<% [:Vacuum, :Do_the_dishes, :Water_the_flowers].each do |name| %>
+		<div class="field">
+			<%= check_box_tag name %>
+			<%= label_tag name %>
+			<%= select_tag(:"size_#{name}", options_for_select([
+																								["Big", "big"], 
+																								["Small", "small"]
+																							])) %>
+			<%= select_tag(:"interval_#{name}", options_for_select([
+																								["Daily", "daily"], 
+																								["Weekly", "weekly"], 
+																								["Monthly", "monthly"]
+																							])) %>
+		</div>
+	<% end %>
+	
+	<div class="action">
+		<%= submit_tag "Create tasks" %>
+	</div>
+<% end %>

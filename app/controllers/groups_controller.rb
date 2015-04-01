@@ -26,7 +26,11 @@ class GroupsController < ApplicationController
         user.update(group_id: @group.id)
       end
 
-      redirect_to @group
+      if params[:add_suggested_tasks]
+        redirect_to tasks_add_suggested_path
+      else
+        redirect_to @group
+      end
     else
       flash[:alert] = "There was an error"
       render :new
