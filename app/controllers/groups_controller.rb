@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     group_params = params.require(:group).permit(:name)
     @group = Group.new(group_params)
 
-    users = params[:users].map do |email|
+    users = params[:users].select(&:present?).map do |email|
       User.find_by_email(email)
     end
 
