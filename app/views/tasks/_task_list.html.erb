@@ -1,13 +1,14 @@
 <% if tasks.present? %>
-<ul>
-	<% tasks.each do |task| %>
-		<li>
-			<%= task.name %>
-			<%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?"} %>
-			<%= link_to "Edit", edit_task_path(task) %>		
-		</li>
-	<% end %>
-</ul>
+	<ul>
+		<% tasks.each do |task| %>
+			<li>
+				<%= check_box_tag "complete-#{task.id}", "yes", task.completed_at?, data: { task_id: task.id } %>
+				<%= label_tag "complete-#{task.id}", task.name %>
+				<%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?"} %>
+				<%= link_to "Edit", edit_task_path(task) %>		
+			</li>
+		<% end %>
+	</ul>
 <% else %>
 	<p>No tasks of this size there yet.</p>
 <% end %>

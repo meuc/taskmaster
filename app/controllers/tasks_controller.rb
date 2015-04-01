@@ -79,6 +79,12 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
   
+  def toggle_completed
+    task = Task.find(params[:id])
+    task.toggle_completed
+    render json: task
+  end
+  
   private
   
   def require_group!
