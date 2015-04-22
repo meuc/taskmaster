@@ -39,4 +39,8 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem "devise"
-gem 'pry-rails', :group => :development
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.0'
+end

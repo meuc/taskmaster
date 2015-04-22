@@ -4,6 +4,7 @@
 			<li>
 				<%= check_box_tag "complete-#{task.id}", "yes", task.completed_at?, data: { task_id: task.id } %>
 				<%= label_tag "complete-#{task.id}", task.name %>
+				(<%= task.user.first_name %> <%= task.user.last_name %>)
 				<%= link_to "Delete", task, method: :delete, data: { confirm: "Are you sure?"} %>
 				<%= link_to "Edit", edit_task_path(task) %>		
 			</li>

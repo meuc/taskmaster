@@ -12,6 +12,7 @@
 	<p class="alert"><%= alert %></p>
 	
 	<% if user_signed_in? %>
+		<%= link_to "Your profile", current_user %>
 		<% if current_user.group? %>
 			<%= link_to "Your group", current_user.group %>	
 		<% else %>

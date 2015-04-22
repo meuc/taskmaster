@@ -17,6 +17,7 @@ class TasksController < ApplicationController
     @task.group = current_user.group
     
     if @task.save 
+      @task.assign_user
       redirect_to tasks_path
     else
       render :new

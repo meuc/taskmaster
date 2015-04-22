@@ -59,4 +59,7 @@ class GroupsController < ApplicationController
   end
 end
 
+
+# add remove people from group
+
 # TODO: remove create group link on create group page or make less prominent
