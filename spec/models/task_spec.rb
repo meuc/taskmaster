@@ -1,89 +1,93 @@
 require "rails_helper"
 
 describe Task do
-  it "gets users assigned" do
-    group = Group.new
-    user = create_user
-    group.users << user
-    task = create_task
-    group.tasks << task
-    
-    task.assign_user
-
-    expect(task.user).to eq user
-  end
-  
-  it "gets users assigned when there are more users" do
-    group = Group.new
-    user = create_user
-    group.users << user
-    group.users << User.new
-    group.users << User.new
-    task = create_task
-    group.tasks << task
-    
-    task.assign_user
-
-    expect(task.user).to eq user
-  end
-  
-  it "assigns users in turn" do
+  it "assigns tasks" do
     group = Group.create! name: "House"
     bob = create_user "Bob"
     alice = create_user "Alice"
-    cindy = create_user "Cindy"
     group.users << bob
     group.users << alice
-    group.users << cindy
-    
-    one = create_task
-    group.tasks << one
-    one.assign_user
-    
-    two = create_task
-    group.tasks << two
-    two.assign_user
-    
-    three = create_task
-    group.tasks << three
-    three.assign_user
 
-    expect(one.user.first_name).to eq bob.first_name
-    expect(two.user.first_name).to eq cindy.first_name
-    expect(three.user.first_name).to eq alice.first_name
+    one = create_task(group, interval: "Daily", size: "small")
+    one.update(user_id: bob.id)
+    one = create_task(group, interval: "Daily", size: "small")
+    one.update(user_id: bob.id)
+
+    one = create_task(group, interval: "Daily", size: "big")
+    one.update(user_id: alice.id)
+    one = create_task(group, interval: "Daily", size: "big")
+    one.update(user_id: alice.id)
+
+    expect(group.users_and_number_of_tasks).to eq({
+      "small" => {
+        0 => [alice],
+        2 => [bob],
+      },
+      "big" => {
+        0 => [bob],
+        2 => [alice],
+      },
+    })
   end
-  
-  it "assigns users in circle" do
+
+  it "assigns tasks" do
     group = Group.create! name: "House"
     bob = create_user "Bob"
     alice = create_user "Alice"
-    cindy = create_user "Cindy"
+    users = [alice, bob]
     group.users << bob
     group.users << alice
-    group.users << cindy
-    
-    one = create_task
-    group.tasks << one
-    one.assign_user
-    
-    two = create_task
-    group.tasks << two
-    two.assign_user
-    
-    three = create_task
-    group.tasks << three
-    three.assign_user
-    
-    four = create_task
-    group.tasks << four
-    four.assign_user
 
+    one = create_task(group, interval: "Daily", size: "small")
+    one.assign_user
+    users.map(&:reload)
     expect(one.user.first_name).to eq bob.first_name
-    expect(two.user.first_name).to eq cindy.first_name
-    expect(three.user.first_name).to eq alice.first_name
-    expect(four.user.first_name).to eq bob.first_name
+
+    one = create_task(group, interval: "Daily", size: "small")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq alice.first_name
+
+    one = create_task(group, interval: "Daily", size: "big")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq bob.first_name
+
+    one = create_task(group, interval: "Daily", size: "big")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq alice.first_name
   end
-  
+
+  it "assigns tasks" do
+    group = Group.create! name: "House"
+    bob = create_user "Bob"
+    alice = create_user "Alice"
+    users = [alice, bob]
+    group.users << bob
+    group.users << alice
+
+    one = create_task(group, interval: "Daily", size: "small")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq bob.first_name
+
+    one = create_task(group, interval: "Daily", size: "big")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq alice.first_name
+
+    one = create_task(group, interval: "Daily", size: "big")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq bob.first_name
+
+    one = create_task(group, interval: "Daily", size: "small")
+    one.assign_user
+    users.map(&:reload)
+    expect(one.user.first_name).to eq alice.first_name
+  end
+
   def create_user(first_name = "Bob")
     User.create!(
       first_name: first_name,
@@ -94,12 +98,13 @@ describe Task do
       password: "passwordlol"
     )
   end
-  
-  def create_task
+
+  def create_task(group, interval: "small", size: "Daily")
     Task.create!(
-       name: "Get milk",
-       interval: "Always",
-       size: "Rather large"
+      name: "Get milk",
+      interval: interval,
+      size: size,
+      group_id: group.id,
     )
   end
 end
