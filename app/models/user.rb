@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :gender, presence: true
-  validates :birthdate, presence: true
   
   def with_or_without_s
     last = first_name.last
