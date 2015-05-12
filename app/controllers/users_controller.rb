@@ -6,5 +6,6 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @tasks = Grouper.new(@user.tasks).group_by(:size, :interval)
   end
 end

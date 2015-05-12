@@ -26,7 +26,7 @@
 	<div class="field">
 		<%= f.label :gender %>
 		<%= f.select(:gender) do %>
-			<% [['Female', 'female'], ['Male', 'male'], ['Other', 'other']].each do |c| -%>
+			<% [['?', '?'], ['Female', 'female'], ['Male', 'male'], ['Other', 'other']].each do |c| -%>
 				<%= content_tag(:option, c.first, value: c.last) %>
 			<% end %>
 		<% end %>

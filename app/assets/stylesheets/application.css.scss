@@ -18,3 +18,25 @@ body {
 		display: none;
 	}
 }
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.wrapper {
+	.profile-information {
+		overflow: hidden;
+		
+		.user-information {
+			width: 50%;
+		}
+	}
+
+	.task-list {
+		width: 80%;
+	}
+}

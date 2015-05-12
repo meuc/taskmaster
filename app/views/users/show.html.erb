@@ -2,4 +2,58 @@
 	This is <%= @user.with_or_without_s %> profile
 </h1>
 
-<%= link_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+<div class="wrapper">
+	<div class="profile-information">
+		<%= image_tag "pp-placeholder.png", alt: "Your profile picture", class: "left" %>
+
+		<div class="right user-information">
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+		<br><br>
+		<%= link_to "Edit your profile", edit_user_registration_path %>
+		<%= link_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+		</div>
+	</div>
+<% if @user == current_user %>
+	<div class="task-list">
+		<h2>Big Tasks</h2>
+		
+		<% if @tasks["big"] %>
+			<% if @tasks["big"]["daily"].present? %>
+				<h3>Daily</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["daily"] } %>
+			<% end %>
+			<% if @tasks["big"]["weekly"].present? %>
+				<h3>Weekly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
+			<% end %>
+			<% if @tasks["big"]["monthly"].present? %>
+				<h3>Monthly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
+			<% end %>
+		<% else %>
+			<p>You don't have any big tasks.</p>
+		<% end %>
+		<hr>
+
+		<h2>Small Tasks</h2>
+		<% if @tasks["small"].present? %>
+			<% if @tasks["small"]["daily"].present? %>
+				<h3>Daily</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["daily"] } %>
+			<% end %>
+			<% if @tasks["small"]["weekly"].present? %>
+				<h3>Weekly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
+			<% end %>
+			<% if @tasks["small"]["monthly"].present? %>
+				<h3>Monthly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
+			<% end %>
+		<% else %>
+			<p>You don't have any small tasks.</p>
+		<% end %>
+	</div>
+<% end %>
+
+</div>
