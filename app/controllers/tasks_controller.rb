@@ -72,9 +72,8 @@ class TasksController < ApplicationController
       task.name = name.humanize
       task.size = params[:"size_#{name}"]
       task.interval = params[:"interval_#{name}"]
-      task.user = current_user
-      # TODO: fix bug: current_user has to be user with least tasks, otherwise when severakl tasks made at once, then all go to same person
       task.group = current_user.group
+      task.assign_user
       task.save!
     end
     
