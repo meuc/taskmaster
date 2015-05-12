@@ -11,6 +11,10 @@
 	<% end %>
 </ul>
 
+<%= link_to "Add new person", choose_user_path %>
+
+<%= link_to "Leave the group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %>
+
 <%= link_to "Your task list", tasks_path %>
 
-<%= link_to "Delete group", @group, method: :delete, data: { confirm: "Are you sure?"} %>
+<%= link_to "Delete group", @group, method: :delete, data: { confirm: "Are you sure?" } %>

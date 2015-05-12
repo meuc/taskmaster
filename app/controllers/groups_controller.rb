@@ -57,9 +57,55 @@ class GroupsController < ApplicationController
     flash[:notice] = "Group has been deleted"
     redirect_to root_path
   end
+  
+  def leave
+    @group = Group.find(params[:id])
+    
+    current_user_tasks = current_user.tasks
+    
+    current_user_tasks.each do |task|
+      task.update! user_id: nil
+    end
+    
+    @group.users.delete(current_user)
+    
+    current_user_tasks.each do |task|
+      task.assign_user
+    end
+    
+    flash[:notice] = "You left the group"
+    redirect_to root_path
+  end
+  
+  def choose_user  
+  end
+  
+  def add_user
+    @group = Group.find(params[:id])
+
+    users = params[:users].select(&:present?).map do |email|
+      User.find_by_email(email)
+    end
+
+    if users.all?(&:present?)
+      users.each do |user|
+        user.update(group_id: @group.id)
+      end
+      
+      @group.tasks.each do |task|
+        task.update(user_id: nil)
+      end
+      
+      @group.tasks.each do |task|
+        task.assign_user
+      end
+      
+      redirect_to @group
+    else
+      flash[:alert] = "One or more email addresses not existent."
+      render :choose_user
+    end
+  end
 end
-
-
-# add remove people from group
 
 # TODO: remove create group link on create group page or make less prominent

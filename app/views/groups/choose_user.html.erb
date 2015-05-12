@@ -1,0 +1,18 @@
+<%= form_tag add_user_path, method: :post do %>
+	<div class="field">
+		<%= label_tag :users %>
+		
+		<div class="adding-fields">
+			<div class="add-user-field">
+				<%= text_field_tag "users[]" %>
+				<button type="button">Remove</button>
+			</div>
+		</div>
+		
+		<button type="button" class="add-user-button">Add user field</button>
+	</div>
+	
+	<div class="actions">
+		<%= submit_tag %>
+	</div>
+<% end %>

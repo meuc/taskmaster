@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   resources :users 
   resources :groups, only: [:new, :create, :show, :destroy]
+  delete "/groups/:id/leave", to: "groups#leave", as: "leave_group"
+  get "/groups/:id/choose_user", to: "groups#choose_user", as: "choose_user"
+  post "/groups/:id/add_user", to: "groups#add_user", as: "add_user"
   # TODO: add edit
   resources :tasks do
     member do
