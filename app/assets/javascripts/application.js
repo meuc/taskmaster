@@ -35,5 +35,13 @@ $(function(){
 		 });
 	});
 	
+	$(document).on("click", ".profile", function(e) {
+		e.preventDefault();
+		$(".profile-sub").toggle();
+	});
+	
+	$(document).on("click", ".edit-toggler", function() {
+		$(".task-controls").toggle();
+	});
 });
 

@@ -3,10 +3,100 @@
  *= require_self
  */
 
-$color: beige;
+$beige: #f5ede3;
+$blue: #144884;
+$orange: #f17431;
+
+$display-font: "Arvo", serif;
+$text-font: 'Ubuntu', 'Helvetica', sans-serif;
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+}
 
 body {
-	background: $color;
+	margin: 0;
+}
+
+.logo {
+	width: 100px;
+	margin: 0 auto;
+	display: block;
+}
+
+nav {
+	font-family: $text-font;
+	font-weight: bold;
+	
+	.nav-part {
+		width: 40%;
+		top: 60px;
+		position: relative;
+				
+		&.left {
+			text-align: right;
+			
+			a {
+				padding: 5px 10px 5px 40px;
+//				border-right: 1px solid;
+			}
+		}
+		
+		&.right {
+			a {
+//				border-left: 1px solid;
+			}
+		}
+		
+		a {
+			padding: 5px 40px 5px 10px;
+			margin: 5px 10px;
+			text-transform: uppercase;
+			text-decoration: none;
+			border-bottom: 1px solid;
+			color: $orange;
+//			color: $blue; //rather blue?
+		}
+		
+		.profile-sub {
+			position: absolute;
+			top: 20px;
+			display: none;
+			
+			a {
+				display: block;
+				text-transform: capitalize;
+				font-weight: normal;
+			}
+		}
+	}
+}
+
+.main {
+	width: 80%;
+	margin: 0 auto;
+	color: $blue;
+	font-family: $text-font;
+	
+	h1 {
+		text-transform: capitalize;
+	}
+	
+	h1, h2 {
+		font-family: $display-font;
+	}
+	
+// :/ //	h2, h3, h4 {
+//		font-weight: normal !important;
+//	}
 }
 
 .field_with_errors input {
@@ -38,5 +128,99 @@ body {
 
 	.task-list {
 		width: 80%;
+	}
+}
+
+.group-member-list {
+	width: 100%;
+	border-top: 1px solid $beige;
+	border-bottom: 1px solid $beige;
+	margin: 0 auto;
+	text-align: center;
+	
+	li {
+		display: inline-block;
+		margin: 10px;
+		
+		h3, h4 {
+			margin: 0;
+		}
+		
+		h3 {
+			a {
+				color: $blue;
+				text-decoration: none;
+			}
+		}
+		
+		img {
+			width: 100px;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.task-list {
+	width: 75%;
+	margin: 0;
+	list-style: none;
+	padding-left: 0;
+	
+//	TODO: make my own checkboxes maybe...
+	
+	li {
+		margin-bottom: 9px;
+	}
+	
+	.task-controls {
+		display: none;
+		
+		a {
+			color: white;
+			text-decoration: none;
+			padding: 5px;
+			margin: 3px 0;
+		}
+		.delete {
+			background: $beige;
+		}
+		.edit {
+			background: darken($beige, 10%);
+		}
+	}
+}
+
+footer {
+	font-family: $text-font;
+	border-top: 1px solid $beige;
+	margin-top: 40px;
+	
+	p {
+		color: $beige;
+						
+		a {
+			font-family: $display-font;
+			color: $orange;
+		}
+	}
+}
+
+hr {
+	display: block; 
+	height: 1px;
+	border: 0; 
+	border-top: 2px solid $beige;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.row {
+	text-align: center;
+	
+	.column {
+		width: 33%;
+		text-align: left;
+		display: inline-block;
+		vertical-align: top
 	}
 }

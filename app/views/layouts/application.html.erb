@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ChoresApp</title>
+  <title>Habitat</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Arvo:700|Ubuntu' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 	
-	<% if user_signed_in? %>
-		<%= link_to "Your profile", current_user %>
-		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
-		<% if current_user.group? %>
-			<%= link_to "Your group", current_user.group %>	
-		<% else %>
-			<%= link_to "Create a group", new_group_path %>
-		<% end %>
-	<% end %>
+	<header>
+		<nav>
+			<div class="left nav-part">
+				<% if user_signed_in? %>
+					<% if current_user.group? %>
+						<%= link_to "Group", current_user.group %>	
+						<%= link_to "Task list", tasks_path %>	
+					<% else %>
+						<%= link_to "Create a group", new_group_path %>
+					<% end %>
+			</div>
+			<div class="right nav-part">
+				<a href="#" class="profile">Profile ▾</a>
+				<div class="profile-sub">
+					<%= link_to "See profile", current_user%>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "log-out" %>
+				</div>
+				<a href="#">Noticitations</a>
+				</div>
+				<% end %>
+		</nav>
+		
+		<a href="/"><%= image_tag "logo.png", alt: "Logo", class: "logo" %></a>
+	</header>
 	
 	<div class="main">
 		<%= yield %>
 	</div>
 	
+	<footer class="row">
+		<p class="column">
+			<a href="#">Contact us!</a><br>
+			Send feedback, report bugs, give new ideas, complain about all this s**t here. It's all welcome!
+		</p>
+		<p class="column">
+			<a href="#">Need help?</a><br>
+			Check out the FAQ or simply pass a message!
+		</p>
+		<p class="column"><a href="#">Want to donate?</a><br>
+			&copy; Marie Crabit | 2015
+		</p>	
+</footer>
 </body>
 </html>
