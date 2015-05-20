@@ -1,23 +1,33 @@
-<%= form_tag tasks_add_suggested_path, method: "post" do %>
+<div class="form-wrapper">
+	<h2>Would you like to include some of these?</h2>
+	<%= form_tag tasks_add_suggested_path, method: "post" do %>
+		<%= check_box_tag "Check all" %>
+		<%= label_tag "Check all" %>
+	<table>
 	<% [:Vacuum, :Do_the_dishes, :Water_the_flowers, :Feed_the_pet, :Gather_all_dishes_by_the_sink, :Get_the_mail, :Do_the_laundry, :Iron, :Tidy_up, :Trash, :Prepare_breakfast, :Cook_dinner, :Exchange_dirty_towels, :Clean_the_toilet, :Deblock_the_drains, :Throw_out_bad_food, :Clean_the_sinks, "Clean_the_shower/bathtub", :Dust_all_surfaces, "Wipe_down_handles/doorknobs", :Check_and_stock_up_supplies, :Clean_mirrors, :Clean_windows, "Clean_the_oven/microwave", :Change_bedsheets, :Decalc].each do |name| %>
 		<div class="field">
-			<%= check_box_tag name %>
-			<%= label_tag name %>
-			<%= select_tag(:"size_#{name}", options_for_select([
-																								["Big", "big"], 
-																								["Small", "small"]
-																							])) %>
-			<%= select_tag(:"interval_#{name}", options_for_select([
-																								["Daily", "daily"], 
-																								["Weekly", "weekly"], 
-																								["Monthly", "monthly"]
-																							])) %>
+				<tr>
+					<td><%= check_box_tag name %></td>
+					<td><%= label_tag name %></td>
+					<td>
+						<%= select_tag(:"size_#{name}", options_for_select([
+																											["Big", "big"], 
+																											["Small", "small"]
+																										])) %>
+					</td>
+					<td>
+						<%= select_tag(:"interval_#{name}", options_for_select([
+																											["Daily", "daily"], 
+																											["Weekly", "weekly"], 
+																											["Monthly", "monthly"]
+																										])) %>
+					</td>
+				</tr>		
 		</div>
 	<% end %>
-	
-	<h2>Make an "Check all" button.</h2>
-	
-	<div class="action">
+	</table>
+	<div class="actions">
 		<%= submit_tag "Create tasks" %>
 	</div>
 <% end %>
+</div>

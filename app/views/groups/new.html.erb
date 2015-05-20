@@ -1,3 +1,5 @@
+<div class="form-wrapper">
+	<h2>Create a group</h2>
 <%= form_for @group do |f| %>
 
 	<div class="field">	
@@ -5,8 +7,9 @@
 		<%= f.text_field :name %>
 	</div>
 	
-	<p>Add people by email address.</p>
-	
+	<div class="field">
+		<br><label><b>Add people by email address.</b></label>
+	</div>
 	<div class="field">
 		<%= label_tag :users %>
 		
@@ -19,7 +22,7 @@
 		
 		<button type="button" class="add-user-button">Add user field</button>
 	</div>
-	
+	<br>
 	<div class="field">
 		<%= label_tag :add_suggested_tasks %>?
 		<%= check_box_tag :add_suggested_tasks %>
@@ -30,3 +33,4 @@
 	</div>
 	
 <% end %>
+</div>
