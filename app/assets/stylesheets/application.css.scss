@@ -124,6 +124,16 @@ nav {
 	.profile-information {
 		overflow: hidden;
 		
+		.prolile-picture {
+			width: 200px;
+			height: 200px;
+			background-image: url("./pp-placeholder.png");
+			background-size: cover;
+			background-position: center center;
+			margin: 1rem 0;
+			border: 1px solid;
+		}
+		
 		.user-information {
 			width: 50%;
 		}
