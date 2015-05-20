@@ -95,9 +95,9 @@ nav {
 	color: $blue;
 	font-family: $text-font;
 	
-	h1 {
-		text-transform: capitalize;
-	}
+//	h1 {
+//		text-transform: capitalize;
+//	}
 	
 	h1, h2 {
 		font-family: $display-font;
@@ -139,7 +139,7 @@ nav {
 			background-image: url("./pp-placeholder.png");
 			background-size: cover;
 			background-position: center center;
-			margin: 1rem 0;
+			margin: 1rem;
 			border: 1px solid;
 		}
 		
