@@ -2,7 +2,13 @@
 	<ul class="task-list">
 		<% tasks.each do |task| %>
 			<li>
-				<%= check_box_tag "complete-#{task.id}", "yes", task.completed_at?, data: { task_id: task.id } %>
+				<%=
+					check_box_tag "complete-#{task.id}",
+											  "yes",
+												task.completed_at?,
+												data: { task_id: task.id },
+												disabled: current_user != task.user
+				%>
 				<%= label_tag "complete-#{task.id}", task.name %>
 				
 				(<%= task.user.first_name %> <%= task.user.last_name %>)

@@ -1,3 +1,4 @@
+# to assign next task to specific user
 class PickUser
   class << self
     def call(hash, size)
