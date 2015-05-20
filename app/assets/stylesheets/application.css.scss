@@ -23,11 +23,16 @@ html {
 }
 
 body {
-	background: -webkit-linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
-	background: linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#144884', endColorstr='#f17431',GradientType=1 );
 	margin: 0;
 //	background: $beige;
+}
+
+.gradient {
+	background-image: -webkit-linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
+	background-image: linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#144884', endColorstr='#f17431',GradientType=1 );
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 .logo {
@@ -127,11 +132,6 @@ nav {
 	.profile-information {
 		overflow: hidden;
 		padding: 1rem;
-		background: #144884;
-		background: -webkit-linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
-		background: linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#144884', endColorstr='#f17431',GradientType=1 );
-
 		
 		.prolile-picture {
 			width: 200px;
@@ -163,9 +163,10 @@ nav {
 
 .group-member-list {
 	width: 100%;
-	border-top: 1px solid $beige;
-	border-bottom: 1px solid $beige;
-	margin: 0 auto;
+//	border-top: 1px solid $beige;
+//	border-bottom: 1px solid $beige;
+	margin: 1rem auto;
+	padding: 1rem;
 	text-align: center;
 	
 	li {

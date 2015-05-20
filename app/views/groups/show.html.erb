@@ -3,7 +3,7 @@
 </h1>
 
 <h2>Group members:</h2>
-<ul class="group-member-list">
+<ul class="group-member-list gradient">
 	<% @group.users.each do |user| %>
 		<li>
 			<%= image_tag "pp-placeholder.png", alt: "User's profile picture"%> <!--TODO: replase in alt 'Users' by actual name and add it into the link-->
@@ -13,12 +13,12 @@
 	<% end %>
 </ul>
 
-<div class="">
+<div class="left">
 	<%= link_to "Add new person", choose_user_path %>
 	<%= link_to "Leave the group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>
 
-<div class="">
+<div class="right">
 	<%= link_to "Your task list", tasks_path %>
 	<a href="#">See progress graph</a>
 </div>
