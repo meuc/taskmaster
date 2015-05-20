@@ -61,7 +61,7 @@ class TasksController < ApplicationController
     tasks_we_want = []
     
     params.each do |key, value|
-      if value == "1"
+      if value == "1" && key != "Check all"
         tasks_we_want << key
         # "mini shovels" take this thing abd put it in (way arrows are pointed)
       end
