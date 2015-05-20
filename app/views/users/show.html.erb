@@ -6,10 +6,12 @@
 	<div class="profile-information gradient">
 		<div class="left">
 		<div class="prolile-picture"></div>
-		<% if @user == current_user %>
-			<%= link_to "Edit your profile", edit_user_registration_path %>
-			<%= link_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?"} %>
-		<% end %>
+		<div class="user-edit">
+			<% if @user == current_user %>
+				<%= link_to "Edit your profile", edit_user_registration_path %>
+				<%= link_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+			<% end %>
+		</div>
 	</div>
 <!--TODO: add thumbnail -->
 

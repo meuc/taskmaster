@@ -1,6 +1,7 @@
+<div class="form-wrapper">
 <%= form_tag add_user_path, method: :post do %>
 	<div class="field">
-		<%= label_tag :users %>
+		<h2>Add <%= label_tag :users %> by email address</h2>
 		
 		<div class="adding-fields">
 			<div class="add-user-field">
@@ -16,3 +17,5 @@
 		<%= submit_tag %>
 	</div>
 <% end %>
+<%= link_to "Back", group_path %>
+</div>
