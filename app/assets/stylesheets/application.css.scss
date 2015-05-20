@@ -24,6 +24,7 @@ html {
 
 body {
 	margin: 0;
+//	background: $beige;
 }
 
 .logo {
@@ -111,10 +112,12 @@ nav {
 
 .right {
 	float: right;
+	vertical-align: top;
 }
 
 .left {
 	float: left;
+	vertical-align: top;
 }
 
 .wrapper {
@@ -125,9 +128,17 @@ nav {
 			width: 50%;
 		}
 	}
+}
 
-	.task-list {
-		width: 80%;
+.task-wrapper {
+	overflow: hidden;
+		
+	.task-list-part {
+		width: 50%;
+				
+		.task-list {
+			width: 100%;
+		}
 	}
 }
 
@@ -194,6 +205,7 @@ footer {
 	font-family: $text-font;
 	border-top: 1px solid $beige;
 	margin-top: 40px;
+	padding: 5px 3%;
 	
 	p {
 		color: $beige;
@@ -221,6 +233,6 @@ hr {
 		width: 33%;
 		text-align: left;
 		display: inline-block;
-		vertical-align: top
+		vertical-align: top;
 	}
 }
