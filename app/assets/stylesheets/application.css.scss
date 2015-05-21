@@ -24,7 +24,6 @@ html {
 
 body {
 	margin: 0;
-//	background: $beige;
 }
 
 .gradient {
@@ -156,13 +155,13 @@ nav {
 	h1, h2 {
 		font-family: $display-font;
 	}
+}
 
-	a {
-		color: $orange;
-		
-		&:hover {
-			text-shadow: 0 0 10px $beige;
-		}
+a {
+	color: $orange;
+	
+	&:hover {
+		text-shadow: 0 0 10px $beige;
 	}
 }
 
@@ -252,6 +251,12 @@ nav {
 		}
 	}
 }
+
+.task-section {
+	padding: .5rem 1rem;
+	margin:  1rem .5rem;
+}
+
 
 .task-list {
 	width: 75%;

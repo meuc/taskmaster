@@ -3,31 +3,44 @@
 <p class="edit-toggler">Edit</p>
 
 <div class="task-wrapper">
+<!-- TODO: me no satisfied... -->
   <div class="left task-list-part">
     <h2>Big Tasks</h2>
-			<% if @tasks["big"] %>
-    		<h3>Daily</h3>
-    		<%= render partial: "task_list", locals: { tasks: @tasks["big"]["daily"] } %>
-    		<h3>Weekly</h3>
-    		<%= render partial: "task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
-    		<h3>Monthly</h3>
-    		<%= render partial: "task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
-    	<% else %>
-    		<p>You have no big tasks yet.</p>
-    	<% end %>
+    <% if @tasks["big"] %>
+    	<div class="gradient task-section">
+    	  <h3>Daily</h3>
+    	  <%= render partial: "task_list", locals: { tasks: @tasks["big"]["daily"] } %>
+    	</div>
+    	<div class="gradient task-section">
+    	  <h3>Weekly</h3>
+    	  <%= render partial: "task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
+    	</div>
+    	<div class="gradient task-section">
+    	  <h3>Monthly</h3>
+    	  <%= render partial: "task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
+    	</div>
+    <% else %>
+    	<p>You have no big tasks yet.</p>
+    <% end %>
   </div>
-	
+
   <div class="right task-list-part">
     <h2>Small Tasks</h2>
-    	<% if @tasks["small"] %>
-    		<h3>Daily</h3>
-    		<%= render partial: "task_list", locals: { tasks: @tasks["small"]["daily"] } %>
-    		<h3>Weekly</h3>
-    		<%= render partial: "task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
-    		<h3>Monthly</h3>
-    		<%= render partial: "task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
-    	<% else %>
-    		<p>You have no small tasks yet.</p>
-    	<% end %>
+    <% if @tasks["small"] %>
+    	<div class="gradient task-section">
+    	  <h3>Daily</h3>
+    	  <%= render partial: "task_list", locals: { tasks: @tasks["small"]["daily"] } %>
+    	</div>
+    	<div class="gradient task-section">
+    	  <h3>Weekly</h3>
+    	  <%= render partial: "task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
+    	</div>
+    	<div class="gradient task-section">
+    	  <h3>Monthly</h3>
+    	  <%= render partial: "task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
+    	</div>
+    <% else %>
+    	<p>You have no small tasks yet.</p>
+    <% end %>
   </div>
 </div>
