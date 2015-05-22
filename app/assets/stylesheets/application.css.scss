@@ -32,6 +32,8 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#144884', endColorstr='#f17431',GradientType=1 );
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	
+	padding: 1rem;
 }
 
 .logo {
@@ -162,6 +164,67 @@ a {
 	
 	&:hover {
 		text-shadow: 0 0 10px $beige;
+	}
+}
+
+.front-image {
+	position: relative;
+	height: 400px;
+	max-width: 1100px;
+	background-image: url("./dishes.png");
+	background-size: cover;
+	background-position: center;
+	margin-top: 1rem;
+	
+	p {
+		position: absolute;
+		bottom: -1rem;
+		right: 1rem;
+		color: $orange;
+		font-family: $display-font;
+		font-size: 2rem;
+		font-style: italic;
+	}
+}
+
+.introduction {
+	padding: 1rem;
+}
+
+.welcome-wrap {
+	overflow: hidden;
+	
+	div.gradient.left {
+		width: calc(70% - 1rem);
+		margin-right: 1rem;
+		
+		h3 {
+			margin: 0;
+		}
+		
+		p {
+			margin: 0;
+			margin-top: 11px;
+		}
+	}
+	
+	.signup-signin {
+		width: 30%;
+		overflow: hidden;
+		
+		a {
+			width: calc(50% - .5rem);
+			background: $blue;
+			padding: 1rem;
+			color: $beige;
+			font-family: $display-font;
+			text-align: center;
+			text-decoration: none;
+			
+			&:first-child {
+				margin-right: 1rem;
+			}
+		}
 	}
 }
 

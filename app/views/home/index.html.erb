@@ -1,4 +1,12 @@
-This is the index page, yay
+<div class="front-image">
+	<p>A household organization app.</p>
+</div>
+
+<div class="introduction gradient">
+	<h3>Are you tired of struggling to keep your place nice and tidy?</h3>
+	<p>Here comes help! Bacon ipsum dolor amet tail tri-tip pork belly tenderloin. Laborum bacon jowl shoulder commodo. Commodo ut ut ipsum, irure meatball aliqua in pork chop frankfurter cupim ham shank aliquip. Laboris drumstick landjaeger strip steak. Tongue shankle id, in ad cow dolore incididunt fugiat labore t-bone. Dolore pork chuck, shankle alcatra veniam venison pork loin minim in beef laborum fatback.
+	</p>
+</div>
 
 <p>
 	<% if user_signed_in? %>
@@ -6,8 +14,17 @@ This is the index page, yay
 		
 		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
 	<% else %>
-		You're my best guest ever!
-		<%= link_to "Log in", new_user_session_path  %>
-		<%= link_to "Sign up", new_user_registration_path  %>
+		<div class="welcome-wrap">
+			<div class="gradient left">
+				<h3>Hi, you are my best guest ever!</h3>
+				<p>Don't remain just a guest, become a part of this and improve your life!</p>			
+			</div>
+			
+			<div class="signup-signin right gradient">
+				<%= link_to "Log in", new_user_session_path, class: "left" %>
+				<%= link_to "Sign up", new_user_registration_path, class: "right" %>
+			</div>
+		</div>
 	<% end %>
 </p>
+
