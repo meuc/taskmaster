@@ -144,16 +144,51 @@ nav {
 	}
 }
 
+.notice, .alert {	
+		position: fixed;
+		width: 100%;
+		top: 0;
+		left: 0;
+		padding: 1rem;
+		text-align: center;
+		color: white;
+		font-size: 1.5rem;
+		font-family: $display-font;
+		margin: 0;	
+		color: $blue;
+		-webkit-animation: move_out .75s 1s cubic-bezier(.34,-0.6,.6,.47) forwards;
+		animation: move_out .75s 1s cubic-bezier(.34,-0.6,.6,.47) forwards;
+}
+
+.notice {
+	border-top: 1rem solid green;
+	color: green;
+}
+
+.alert {
+	border-top: 1rem red solid;
+	color: red;
+	display: none;
+	
+}
+
+@-webkit-keyframes move_out {
+	to {
+		-webkit-transform: translateY(-100px);
+	}
+}
+@keyframes move_out {
+	to {
+		transform: translateY(-100px);
+	}
+}
+
 .main {
 	width: 80%;
 	margin: 0 auto;
 	color: $blue;
 	font-family: $text-font;
-	
-//	h1 {
-//		text-transform: capitalize;
-//	}
-	
+
 	h1, h2 {
 		font-family: $display-font;
 	}
@@ -366,14 +401,6 @@ footer {
 	p {
 		color: $beige;
 		margin: 0;
-		
-//		&:first-child {
-//			font-style: italic;
-//		}
-//		a {
-//			font-family: $display-font;
-//			color: $orange;
-//		}
 	}
 }
 
@@ -386,6 +413,7 @@ hr {
 	padding: 0;
 }
 
+// TODO: Check if I'm actually using this somewhere?
 .row {
 	text-align: center;
 	
