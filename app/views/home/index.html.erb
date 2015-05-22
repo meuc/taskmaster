@@ -2,17 +2,16 @@
 	<p>A household organization app.</p>
 </div>
 
-<div class="introduction gradient">
-	<h3>Are you tired of struggling to keep your place nice and tidy?</h3>
-	<p>Here comes help! Bacon ipsum dolor amet tail tri-tip pork belly tenderloin. Laborum bacon jowl shoulder commodo. Commodo ut ut ipsum, irure meatball aliqua in pork chop frankfurter cupim ham shank aliquip. Laboris drumstick landjaeger strip steak. Tongue shankle id, in ad cow dolore incididunt fugiat labore t-bone. Dolore pork chuck, shankle alcatra veniam venison pork loin minim in beef laborum fatback.
-	</p>
-</div>
+
 
 <p>
 	<% if user_signed_in? %>
-		Welcome back, <%= current_user.first_name %>!
-		
-		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+		<div class="welcome-wrap">
+			<div class="gradient left">
+				<h3>Welcome back, <%= current_user.first_name %>!</h3>
+			</div>
+			<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "right sign-in-up-out" %>
+		</div>
 	<% else %>
 		<div class="welcome-wrap">
 			<div class="gradient left">
@@ -21,10 +20,17 @@
 			</div>
 			
 			<div class="signup-signin right gradient">
-				<%= link_to "Log in", new_user_session_path, class: "left" %>
-				<%= link_to "Sign up", new_user_registration_path, class: "right" %>
+				<%= link_to "Log in", new_user_session_path, class: "left sign-in-up-out" %>
+				<%= link_to "Sign up", new_user_registration_path, class: "right sign-in-up-out" %>
 			</div>
 		</div>
 	<% end %>
 </p>
 
+
+<div class="introduction gradient">
+	<h3>Are you tired of struggling to keep your place nice and tidy?</h3>
+	<p>Here comes help! Habitat will help you and your roommates structure the work in your household and split it up, so everyone gets to do their fair share! </p>
+	<p>Don't live in a mess! Let this application help you to enjoy yourself more in a clean and tidy environment.</p>
+	<p>This application features a task list, set by your group and if you won't also distributes the tasks amongst you, so you only need to work all the chores off.</p>
+</div>

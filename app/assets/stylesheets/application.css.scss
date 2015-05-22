@@ -170,7 +170,7 @@ a {
 .front-image {
 	position: relative;
 	height: 400px;
-	max-width: 1100px;
+	max-width: 1500px;
 	background-image: url("./dishes.png");
 	background-size: cover;
 	background-position: center;
@@ -189,10 +189,13 @@ a {
 
 .introduction {
 	padding: 1rem;
+	max-width: 1500px;
 }
 
 .welcome-wrap {
 	overflow: hidden;
+	max-width: 1500px;
+	
 	
 	div.gradient.left {
 		width: calc(70% - 1rem);
@@ -208,18 +211,21 @@ a {
 		}
 	}
 	
+	.sign-in-up-out {
+		background: $blue;
+		padding: 1rem;
+		color: $beige;
+		font-family: $display-font;
+		text-align: center;
+		text-decoration: none;
+	}
+	
 	.signup-signin {
 		width: 30%;
 		overflow: hidden;
 		
 		a {
 			width: calc(50% - .5rem);
-			background: $blue;
-			padding: 1rem;
-			color: $beige;
-			font-family: $display-font;
-			text-align: center;
-			text-decoration: none;
 			
 			&:first-child {
 				margin-right: 1rem;
@@ -355,15 +361,19 @@ footer {
 	font-family: $text-font;
 	border-top: 1px solid $beige;
 	margin-top: 40px;
-	padding: 5px 3%;
+	padding: 1rem;
 	
 	p {
 		color: $beige;
-						
-		a {
-			font-family: $display-font;
-			color: $orange;
-		}
+		margin: 0;
+		
+//		&:first-child {
+//			font-style: italic;
+//		}
+//		a {
+//			font-family: $display-font;
+//			color: $orange;
+//		}
 	}
 }
 
