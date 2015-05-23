@@ -164,7 +164,6 @@ nav {
 	border-top: 1rem solid green;
 	color: green;
 }
-
 .alert {
 	border-top: 1rem red solid;
 	color: red;
@@ -211,14 +210,22 @@ a {
 	background-position: center;
 	margin-top: 1rem;
 	
+//	h3 {
+//		text-align: center;
+//		padding-top: 10rem;
+//		font-size: 4rem;
+//		font-weight: normal;
+//	}
+	
 	p {
 		position: absolute;
 		bottom: -1rem;
 		right: 1rem;
 		color: $orange;
 		font-family: $display-font;
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-style: italic;
+		font-weight: normal;
 	}
 }
 
@@ -360,7 +367,6 @@ a {
 	padding: .5rem 1rem;
 	margin:  1rem .5rem;
 }
-
 
 .task-list {
 	width: 75%;
