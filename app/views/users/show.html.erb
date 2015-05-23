@@ -9,7 +9,7 @@
 		<div class="user-edit">
 			<% if @user == current_user %>
 				<%= link_to image_tag("icons/Pencil-icon.png"), edit_user_registration_path, class: "left" %>
-				<%= link_to image_tag("icons/Door-icon.png"), @user, method: :delete, data: { confirm: "Are you sure?"}, class: "right" %>
+				<%= link_to image_tag("icons/Door-icon.png"), @user, method: :delete, data: { confirm: "Are you reeeeaaally sure you want to DELETE YOUR PROFILE?"}, class: "right" %>
 			<% end %>
 		</div>
 	</div>
