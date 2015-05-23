@@ -13,15 +13,32 @@
 	<% end %>
 </ul>
 
-<div class="left">
-	<%= link_to "Add new person", choose_user_path %>
-	<%= link_to "Leave the group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="group-buttons-wrapper">
+	<div class="right">
+		<div class="link-with-icon">
+			<%= link_to image_tag("icons/Bulleted-List-icon.png"), tasks_path, class: "right" %>
+			<%= link_to "Your task list", tasks_path, class: "right" %>
+		</div>
+		<div class="link-with-icon">
+			<%= image_tag "icons/Bar-Chart-5-icon.png", alt: "Progress Graph", class: "right" %>
+			<a href="#" class="">See progress graph</a>
+		</div>
+	</div>
+
+	<div class="left group-buttons">
+		<div class="link-with-icon">
+			<%= link_to image_tag("icons/Add-User-icon.png"), choose_user_path, class: "left" %>
+			<%= link_to "Add new person", choose_user_path, class: "left" %>
+		</div>
+		
+		<div class="link-with-icon">
+			<%= link_to image_tag("icons/Door-icon.png"), leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" }, class: "left" %>
+			<%= link_to "Leave the group", leave_group_path(@group), method: :delete, data: { confirm: "Are you sure?" }, class: "left" %>
+		</div>
+	</div>
 </div>
 
-<div class="right">
-	<%= link_to "Your task list", tasks_path %>
-	<a href="#">See progress graph</a>
-</div>
-<br>
-
-<%= link_to "Delete group", @group, method: :delete, data: { confirm: "Are you really sure you want to delete this group?" } %>
+		<div class="link-with-icon">
+			<%= link_to image_tag("icons/Household-Waste-icon.png"), @group, method: :delete, data: { confirm: "Are you really sure you want to delete this group?" }, class: "left" %>
+			<%= link_to "Delete group", @group, method: :delete, data: { confirm: "Are you really sure you want to delete this group?" }, class: "left" %>
+		</div>

@@ -370,6 +370,25 @@ a {
 	}
 }
 
+.group-buttons-wrapper {
+	overflow: hidden;
+}
+
+.link-with-icon {
+	overflow: hidden;
+	margin-bottom: 1rem;
+			
+	a {
+		line-height: 50px;
+		font-size: 1rem;
+		margin-right: .5rem;
+	}
+	
+	img {
+		width: 50px;
+	}
+}
+
 .task-section {
 	padding: .5rem 1rem;
 	margin:  1rem .5rem;
