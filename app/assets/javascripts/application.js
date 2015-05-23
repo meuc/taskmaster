@@ -40,11 +40,6 @@ $(function(){
 		$(".profile-sub").toggle();
 	});
 	
-	$(document).on("click", ".edit-toggler", function() {
-		$(".task-controls").toggle();
-	});
-	
-	
 	$(document).on("click", "#Check_all",function(){
 	    $('input:checkbox').not(this).prop('checked', this.checked);
 	});

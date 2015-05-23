@@ -1,6 +1,7 @@
-<%= link_to "Add new task", new_task_path %>
-
-<p class="edit-toggler">Edit</p>
+<div class="link-with-icon">
+	<%= link_to image_tag("icons/Add-icon.png"), new_task_path, class: "left" %>
+	<%= link_to "Add new task", new_task_path, class: "left" %>
+</div>
 
 <div class="task-wrapper">
 <!-- TODO: me no satisfied... -->
