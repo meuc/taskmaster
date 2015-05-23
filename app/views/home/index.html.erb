@@ -9,7 +9,7 @@
 			<div class="gradient left">
 				<h3>Welcome back, <%= current_user.first_name %>!</h3>
 			</div>
-			<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "right sign-in-up-out" %>
+			<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "right button" %>
 		</div>
 	<% else %>
 		<div class="welcome-wrap">
@@ -19,8 +19,8 @@
 			</div>
 			
 			<div class="signup-signin right gradient">
-				<%= link_to "Log in", new_user_session_path, class: "left sign-in-up-out" %>
-				<%= link_to "Sign up", new_user_registration_path, class: "right sign-in-up-out" %>
+				<%= link_to "Log in", new_user_session_path, class: "left button" %>
+				<%= link_to "Sign up", new_user_registration_path, class: "right button" %>
 			</div>
 		</div>
 	<% end %>

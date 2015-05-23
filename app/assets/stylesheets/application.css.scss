@@ -122,7 +122,7 @@ nav {
   
   .actions {
     text-align: center;
-    
+		
     input {
       padding: .5rem;
       margin: 1rem 1rem .5rem;
@@ -132,6 +132,7 @@ nav {
       font-family: $display-font;
       border: none;
       width: 350px;
+			cursor: pointer;
     }
   }
 	
@@ -253,15 +254,6 @@ a {
 		}
 	}
 	
-	.sign-in-up-out {
-		background: $blue;
-		padding: 1rem;
-		color: $beige;
-		font-family: $display-font;
-		text-align: center;
-		text-decoration: none;
-	}
-	
 	.signup-signin {
 		width: 30%;
 		overflow: hidden;
@@ -274,6 +266,15 @@ a {
 			}
 		}
 	}
+}
+
+.button {
+	background: $blue;
+	padding: 1rem;
+	color: $beige;
+	font-family: $display-font;
+	text-align: center;
+	text-decoration: none;
 }
 
 .field_with_errors input {
@@ -303,6 +304,11 @@ a {
 		
 		.user-edit {
 			margin-left: 1rem;
+			width: 200px;
+			
+			a {
+				width: calc(50% - .5rem);
+			}
 		}
 		
 		.prolile-picture {

@@ -8,8 +8,8 @@
 		<div class="prolile-picture"></div>
 		<div class="user-edit">
 			<% if @user == current_user %>
-				<%= link_to "Edit your profile", edit_user_registration_path %>
-				<%= link_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?"} %>
+				<%= link_to "Edit", edit_user_registration_path, class: "button left" %>
+				<%= link_to "Delete", @user, method: :delete, data: { confirm: "Are you sure?"}, class: "button right" %>
 			<% end %>
 		</div>
 	</div>
