@@ -1,7 +1,18 @@
-<div class="link-with-icon">
+<div class="task-list-icon-wrapper">
+	<div class="link-with-icon left">
+		<%= link_to image_tag("icons/Add-icon.png"), new_task_path, class: "left" %>
+		<%= link_to "Add new task", new_task_path, class: "left" %>
+	</div>
+	
+	<div class="link-with-icon right">
+		<%= link_to image_tag("icons/Speach-Bubble-icon.png"), new_task_path, class: "right" %>
+		<%= link_to "Show 'comments'", new_task_path, class: "right" %>
+	</div>
+</div>
+<!-- <div class="link-with-icon">
 	<%= link_to image_tag("icons/Add-icon.png"), new_task_path, class: "left" %>
 	<%= link_to "Add new task", new_task_path, class: "left" %>
-</div>
+</div> -->
 
 <div class="task-wrapper">
 <!-- TODO: me no satisfied... -->

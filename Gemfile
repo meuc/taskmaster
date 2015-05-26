@@ -48,3 +48,5 @@ group :development, :test do
 end
 
 gem 'rails_12factor', group: :production
+
+gem "paperclip", "~> 4.2"

@@ -6,7 +6,7 @@
 <ul class="group-member-list gradient">
 	<% @group.users.each do |user| %>
 		<li>
-			<%= image_tag "pp-placeholder.png", alt: "User's profile picture"%> <!--TODO: replase in alt 'Users' by actual name and add it into the link-->
+			<%= image_tag user.avatar.url, alt: "User's profile picture"%> <!--TODO: replase in alt 'Users' by actual name and add it into the link-->
 			<h3><%= link_to "#{user.first_name} #{user.last_name}", user %></h3>
 			<h4>Score: 27</h4><!-- TODO: generate score -->
 		</li>

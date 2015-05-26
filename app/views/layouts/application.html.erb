@@ -5,13 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-	<link href='http://fonts.googleapis.com/css?family=Arvo:700|Ubuntu:400,700' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Arvo:700|Ubuntu:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body class="gradient">
 <!-- TODO: make this not show up, when there is nothing happening!! -->
-	<p class="notice gradient"><%= notice %></p>
-	<p class="alert gradient"><%= alert %></p>
+
+<% if notice.present? || alert.present? %>
+ 	<p class="notice gradient"><%= notice %></p>
+ 	<p class="alert gradient"><%= alert %></p>
+<% end %>
+	
 	
 	<header>
 		<nav>

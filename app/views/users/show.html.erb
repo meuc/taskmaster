@@ -5,7 +5,8 @@
 <div class="wrapper">
 	<div class="profile-information gradient">
 		<div class="left">
-		<div class="prolile-picture"></div>
+		<div class="profile-picture" style="background-image: url(<%= image_path @user.avatar.url %>);">
+		</div>
 		<div class="user-edit">
 			<% if @user == current_user %>
 				<%= link_to image_tag("icons/Pencil-icon.png"), edit_user_registration_path, class: "left" %>
@@ -17,7 +18,13 @@
 
 		<div class="right user-information">
 			<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-			<p>Birthday: <%= @user.birthdate.strftime("#{current_user.birthdate.day.ordinalize} %B %Y") %></p>
+			<p>Birthday: <%=
+				if @user.birthdate.present?
+					@user.birthdate.strftime("#{current_user.birthdate.day.ordinalize} %B %Y")
+				else
+					"n/a"
+				end
+				%></p>
 			<p>Gender: <%= @user.gender %></p>
 			<p>About: <br> 
 				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

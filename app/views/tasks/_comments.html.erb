@@ -1,0 +1,37 @@
+<% task.comments.each do |comment| %>
+	<%= image_tag "feedback-emoticons/#{comment.image_name}" %>
+<% end %>
+
+<!-- here is the list to choose from -->
+<div>
+	<p>Leave your stamp!</p> 
+	<button></button>
+	
+	<%= form_for task.comments.new do |f| %>	
+		<%= hidden_field_tag "task_id", task.id %>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Depression-icon.png" %>
+			<%= f.label "image_name_depression-iconpng", image_tag("feedback-emoticons/Depression-icon.png") %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Danger-2-icon.png" %>
+			<%= f.label "image_name_danger-2-iconpng", image_tag("feedback-emoticons/Danger-2-icon.png") %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Friendster-icon.png" %>
+			<%= f.label "image_name_friendster-iconpng", image_tag("feedback-emoticons/Friendster-icon.png") %>
+		</div>
+	
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+	
+	<% end %>
+	
+	
+	<div class="feedback-icon-list">
+		<%= image_tag "feedback-emoticons/Friendster-icon.png" %>
+		<%= image_tag "feedback-emoticons/Danger-2-icon.png" %>
+		<%= image_tag "feedback-emoticons/Depression-icon.png" %>
+	</div>
+</div>

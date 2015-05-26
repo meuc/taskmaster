@@ -1,4 +1,6 @@
 # Controller is the thing that sits between the HTML and the datebase. It takes stuff out of the database and gives it to the HTML.
+require "grouper"
+
 class UsersController < ApplicationController
   def index
     @users = User.all

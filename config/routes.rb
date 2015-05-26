@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   get "/tasks/add_suggested", to: "tasks#add_suggested"
   post "/tasks/add_suggested", to: "tasks#create_suggested"
 
   resources :users 
   resources :groups, only: [:new, :create, :show, :destroy]
+  resources :comments
+  
   delete "/groups/:id/leave", to: "groups#leave", as: "leave_group"
   get "/groups/:id/choose_user", to: "groups#choose_user", as: "choose_user"
   post "/groups/:id/add_user", to: "groups#add_user", as: "add_user"

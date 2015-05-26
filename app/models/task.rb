@@ -1,6 +1,8 @@
 class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :group
+  
+  has_many :comments
 
   validates :name, presence: true
   validates :size, presence: true
