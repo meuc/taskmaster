@@ -36,26 +36,57 @@ body {
 	padding: 1rem;
 }
 
+header {
+	overflow: hidden;
+	
+	@media screen and (max-width: 532px) {
+		height: 250px;
+		margin-top: -50px;
+	}
+}
+
 .logo {
 	width: 100px;
 	margin: 0 auto;
 	display: block;
+	
+	@media screen and (max-width: 532px) {
+		float: right;
+		margin-top: -10px;
+	}
 }
 
 nav {
 	font-family: $text-font;
 	font-weight: bold;
 	
+	@media screen and (max-width: 532px) {
+//		float: left;
+	}
+	
 	.nav-part {
 		width: 40%;
 		top: 60px;
 		position: relative;
+		
+		@media screen and (max-width: 532px) {
+			float: left;
+			width: 70%;
+		}
 				
 		&.left {
 			text-align: right;
 			
+			@media screen and (max-width: 532px) {
+				text-align: left;
+			}
+			
 			a {
 				padding: 5px 10px 5px 40px;
+				
+				@media screen and (max-width: 532px) {
+					padding: 10px;
+				}
 			}
 		}
 		
@@ -66,7 +97,13 @@ nav {
 			text-decoration: none;
 			border-bottom: 1px solid;
 			color: $orange;
-//			color: $blue; //rather blue?
+			
+			@media screen and (max-width: 732px) {
+				display: block;
+			}
+			@media screen and (max-width: 532px) {
+				padding: 10px;
+			}
 		}
 		
 		.profile-sub {
@@ -82,6 +119,10 @@ nav {
 		}
 	}
 }
+
+//@media screen and (max-width: 532px) {
+//
+//}
 
 .form-wrapper {
   background-image: -webkit-linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
@@ -221,14 +262,6 @@ a {
 	background-size: cover;
 	background-position: center;
 	margin-top: 1rem;
-//	overflow: hidden;
-	
-//	h3 {
-//		text-align: center;
-//		padding-top: 10rem;
-//		font-size: 4rem;
-//		font-weight: normal;
-//	}
 	
 	p {
 		position: absolute;
@@ -531,26 +564,5 @@ footer {
 	p {
 		color: $beige;
 		margin: 0;
-	}
-}
-
-hr {
-	display: block; 
-	height: 1px;
-	border: 0; 
-	border-top: 2px solid $beige;
-	margin: 1em 0;
-	padding: 0;
-}
-
-// TODO: Check if I'm actually using this somewhere?
-.row {
-	text-align: center;
-	
-	.column {
-		width: 33%;
-		text-align: left;
-		display: inline-block;
-		vertical-align: top;
 	}
 }
