@@ -287,6 +287,7 @@ a {
 	font-family: $display-font;
 	text-align: center;
 	text-decoration: none;
+	border: none;
 }
 
 .field_with_errors input {
@@ -427,6 +428,10 @@ a {
 	.task-controls {
 		display: none;
 		
+		img {
+			width:25px;
+		}
+		
 		a {
 			width: 25px;
 			
@@ -444,6 +449,76 @@ a {
 		background-size: cover;
 		background-position: center;
 		border-radius: 50%;
+	}
+}
+
+.stamps-wrap {
+	width: 100%;
+	margin: 1rem 0;
+	
+	.posted-stamp {
+		display: inline-block;
+		
+		img {
+			width: 40px;
+			margin-right: 1rem;
+		}
+		
+		p {
+			margin-top: 0;
+			font-size: .75rem;
+			color: $beige;
+		}
+	}
+}
+
+.comments-wrap, .stamps-menu {
+	display: none;
+}
+
+.stamps-menu {
+	text-align: center;
+	margin-top: 1.5rem;
+	
+	.button {
+		padding: .5rem;
+		font-size: .9rem;
+		margin-top: .5rem;
+	}
+
+	.field {
+		display: inline-block;
+	}
+	
+	.stamp {
+		img {
+			width: 40px;			
+		}
+	}
+	
+	.stamp-radio {
+		display: none;
+	}
+	
+	.clicked-stamp {
+		-webkit-filter: drop-shadow(0px 0px 2px $beige);
+		filter: drop-shadow(0px 0px 2px $beige);
+	}
+}
+.speech-bubble {
+	cursor: pointer;
+}
+.stamp-toggle {
+	cursor: pointer;
+	img {
+		width: 35px;
+	}
+	
+	p {
+		color: $orange;
+		text-decoration: underline;
+		margin-top: -30px;
+		margin-left: 45px;
 	}
 }
 

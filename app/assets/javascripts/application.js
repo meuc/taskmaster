@@ -16,7 +16,7 @@ $(function(){
 		$(this).parents(".add-user-field").remove();
 	});
 	
-	$(document).on("click", "input[type=checkbox][data-task-id]", function(){
+	$(document).on("click", "input[type=checkbox][data-task-id]", function() {
 		var id = $(this).attr("data-task-id");
 		
 		// AJAX
@@ -40,8 +40,26 @@ $(function(){
 		$(".profile-sub").toggle();
 	});
 	
-	$(document).on("click", "#Check_all",function(){
+	$(document).on("click", "#Check_all", function() {
 	    $('input:checkbox').not(this).prop('checked', this.checked);
 	});
+	
+	$(document).on("click", ".stamp", function() {
+		$(".stamp").removeClass("clicked-stamp");
+		$(this).addClass("clicked-stamp");
+	});
+	
+	$(document).on("click", ".stamp-toggle", function() {
+		$(".stamps-menu").toggle();
+	});
+	
+	$(document).on("click", ".comment-toggler", function(e) {
+		e.preventDefault();
+		$(".comments-wrap").toggle();
+	});
+	
+	$(document).on("click", ".speech-bubble", function() {
+		$(".comments-wrap").toggle();
+	});	
 });
 

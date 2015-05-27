@@ -1,37 +1,76 @@
+<div class="comments-wrap">
+<div class="stamps-wrap">
 <% task.comments.each do |comment| %>
-	<%= image_tag "feedback-emoticons/#{comment.image_name}" %>
+	<div class="posted-stamp">
+		<%= image_tag "feedback-emoticons/#{comment.image_name}" %>
+		<p>by <%= task.user.first_name %></p>
+	</div>
 <% end %>
-
+</div>
 <!-- here is the list to choose from -->
 <div>
-	<p>Leave your stamp!</p> 
-	<button></button>
+	<div class="stamp-toggle">
+		<%= image_tag ("icons/Speach-Bubble-icon.png") %>
+		<p>Leave your stamp!</p>
+	</div>
 	
+	<div class="stamps-menu gradient">
 	<%= form_for task.comments.new do |f| %>	
 		<%= hidden_field_tag "task_id", task.id %>
 		<div class="field">	
-			<%= f.radio_button :image_name, "Depression-icon.png" %>
-			<%= f.label "image_name_depression-iconpng", image_tag("feedback-emoticons/Depression-icon.png") %>
+			<%= f.radio_button :image_name, "Depression-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_depression-iconpng",  image_tag("feedback-emoticons/Depression-icon.png"), class: "stamp" %>
 		</div>
 		<div class="field">	
-			<%= f.radio_button :image_name, "Danger-2-icon.png" %>
-			<%= f.label "image_name_danger-2-iconpng", image_tag("feedback-emoticons/Danger-2-icon.png") %>
+			<%= f.radio_button :image_name, "Friendster-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_friendster-iconpng", image_tag("feedback-emoticons/Friendster-icon.png"), class: "stamp" %>
 		</div>
 		<div class="field">	
-			<%= f.radio_button :image_name, "Friendster-icon.png" %>
-			<%= f.label "image_name_friendster-iconpng", image_tag("feedback-emoticons/Friendster-icon.png") %>
+			<%= f.radio_button :image_name, "Angry-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_angry-iconpng", image_tag("feedback-emoticons/Angry-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Confused-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_confused-iconpng", image_tag("feedback-emoticons/Confused-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Happy-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_happy-iconpng", image_tag("feedback-emoticons/Happy-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Danger-2-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_danger-2-iconpng", image_tag("feedback-emoticons/Danger-2-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Clock-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_clock-iconpng", image_tag("feedback-emoticons/Clock-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Heart-2-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_heart-2-iconpng", image_tag("feedback-emoticons/Heart-2-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Claps-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_claps-iconpng", image_tag("feedback-emoticons/Claps-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Rock-andRoll-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_rock-androll-iconpng", image_tag("feedback-emoticons/Rock-andRoll-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Like-2-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_like-2-iconpng", image_tag("feedback-emoticons/Like-2-icon.png"), class: "stamp" %>
+		</div>
+		<div class="field">	
+			<%= f.radio_button :image_name, "Unlike-2-icon.png", class: "stamp-radio" %>
+			<%= f.label "image_name_unlike-2-iconpng", image_tag("feedback-emoticons/Unlike-2-icon.png"), class: "stamp" %>
 		</div>
 	
 		<div class="actions">
-			<%= f.submit %>
+			<%= f.submit class: "button" %>
 		</div>
+	</div>
 	
 	<% end %>
-	
-	
-	<div class="feedback-icon-list">
-		<%= image_tag "feedback-emoticons/Friendster-icon.png" %>
-		<%= image_tag "feedback-emoticons/Danger-2-icon.png" %>
-		<%= image_tag "feedback-emoticons/Depression-icon.png" %>
-	</div>
+</div>
 </div>
