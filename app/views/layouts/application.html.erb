@@ -34,7 +34,9 @@
 					<%= link_to "See profile", current_user%>
 					<%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "log-out" %>
 				</div>
-				<a href="#">Graph</a>
+				<% if current_user.group? %>
+					<a href="#">Graph</a>
+				<% end %>
 				</div>
 				<% end %>
 		</nav>
