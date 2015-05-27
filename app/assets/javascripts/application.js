@@ -35,6 +35,21 @@ $(function(){
 		 });
 	});
 	
+	$(document).on("click", "input.stamp-submit", function() {		
+		// AJAX
+		 $.ajax({
+		   type: "POST",
+		   url: "/tasks",
+		   dataType: "json",
+		   data: {
+		     _method: "PATCH"
+		   },
+			 error: function () {
+				 alert("Error adding stamp");
+			 }
+		 });
+	});
+	
 	$(document).on("click", ".profile", function(e) {
 		e.preventDefault();
 		$(".profile-sub").toggle();
