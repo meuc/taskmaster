@@ -35,21 +35,6 @@ $(function(){
 		 });
 	});
 	
-	$(document).on("click", "input.stamp-submit", function() {		
-		// AJAX
-		 $.ajax({
-		   type: "POST",
-		   url: "/tasks",
-		   dataType: "json",
-		   data: {
-		     _method: "PATCH"
-		   },
-			 error: function () {
-				 alert("Error adding stamp");
-			 }
-		 });
-	});
-	
 	$(document).on("click", ".profile", function(e) {
 		e.preventDefault();
 		$(".profile-sub").toggle();
@@ -65,7 +50,7 @@ $(function(){
 	});
 	
 	$(document).on("click", ".stamp-toggle", function() {
-		$(".stamps-menu").toggle();
+		$(this).parents(".comments-wrap").find(".stamps-menu").toggle();
 	});
 	
 	$(document).on("click", ".comment-toggler", function(e) {
@@ -74,7 +59,7 @@ $(function(){
 	});
 	
 	$(document).on("click", ".speech-bubble", function() {
-		$(".comments-wrap").toggle();
+		$(this).parents(".task-list li").find(".comments-wrap").toggle();
 	});	
 });
 

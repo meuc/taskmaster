@@ -271,6 +271,15 @@ a {
 		font-style: italic;
 		font-weight: normal;
 	}
+	
+	@media screen and (max-width: 545px) {
+		width: 140%;
+		margin-left: -20%;
+	}
+	
+	@media screen and (max-width: 420px) {
+		display: none;
+	}
 }
 
 .introduction {
@@ -558,6 +567,8 @@ footer {
 	border-top: 1px solid $beige;
 	margin-top: 40px;
 	padding: 1rem;
+	
+	text-align: center;
 	
 	p {
 		color: $beige;

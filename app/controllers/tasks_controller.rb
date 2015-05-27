@@ -53,8 +53,7 @@ class TasksController < ApplicationController
     end
   end
   
-  def add_suggested 
-    
+  def add_suggested     
   end
   
   def create_suggested
@@ -83,6 +82,9 @@ class TasksController < ApplicationController
   def toggle_completed
     task = Task.find(params[:id])
     task.toggle_completed
+    
+    task.give_score
+    
     render json: task
   end
   

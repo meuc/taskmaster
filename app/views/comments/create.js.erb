@@ -1,0 +1,1 @@
+$(".stamps-wrap[data-task-id='<%= @comment.task.id %>']").append("<%= escape_javascript(render partial: 'comments/stamp', locals: { comment: @comment }) %>");

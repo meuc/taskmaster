@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :group
   has_many :tasks
   has_many :comments
+  has_many :scores
   
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -25,6 +26,10 @@ class User < ActiveRecord::Base
   
   def group?
     group_id.present?
+  end
+  
+  def total_score
+    scores.pluck(:points).reduce(0, :+)
   end
 end
 

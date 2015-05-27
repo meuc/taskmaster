@@ -1,10 +1,7 @@
 <div class="comments-wrap">
-	<div class="stamps-wrap">
+	<div class="stamps-wrap" data-task-id="<%= task.id %>">
 		<% task.comments.each do |comment| %>
-		<div class="posted-stamp">
-			<%= image_tag "feedback-emoticons/#{comment.image_name}" %>
-			<p>by <%= task.user.first_name %></p>
-		</div>
+			<%= render partial: "comments/stamp", locals: { comment: comment } %>
 		<% end %>
 	</div>
 	<!-- here is the list to choose from -->
@@ -15,8 +12,8 @@
 		</div>
 	
 		<div class="stamps-menu gradient">
-			<%= form_for task.comments.new do |f| %>	
-			<%= hidden_field_tag "task_id", task.id %>
+			<%= form_for task.comments.new, remote: true, namespace: "#{task.id}_comment" do |f| %>	
+				<%= hidden_field_tag "task_id", task.id %>
 			
 			<div class="field">	
 				<%= f.radio_button :image_name, "Depression-icon.png", class: "stamp-radio" %>

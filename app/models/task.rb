@@ -20,4 +20,34 @@ class Task < ActiveRecord::Base
     self.user = PickUser.call(group.users_and_number_of_tasks, size.downcase)
     self.save!
   end
+  
+  def give_score
+    if completed_at?
+      Score.create! user_id: user.id, points: points_worth
+    else
+      # TODO: make this
+    end
+  end
+  
+  private
+  
+  def points_worth
+    if size == "big"
+      if interval == "monthly"
+        12
+      elsif interval == "weekly"
+        10
+      else
+        2
+      end
+    else
+      if interval == "monthly"
+        6
+      elsif interval == "weekly"
+        5
+      else
+        1
+      end
+    end
+  end
 end
