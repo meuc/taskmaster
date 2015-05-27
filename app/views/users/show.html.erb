@@ -5,16 +5,13 @@
 <div class="wrapper">
 	<div class="profile-information gradient">
 		<div class="left">
-		<div class="profile-picture" style="background-image: url(<%= image_path @user.avatar.url %>);">
+			<div class="profile-picture" style="background-image: url(<%= image_path @user.avatar.url %>);">
+				<!--TODO: correct to only compare day and month -->
+				<% if @user.birthdate == Date.today %>
+					<%= image_tag "icons/Birthday-Cake-icon.png" %>
+				<% end %>
+			</div>		
 		</div>
-		<div class="user-edit">
-			<% if @user == current_user %>
-				<%= link_to image_tag("icons/Pencil-icon.png"), edit_user_registration_path, class: "left" %>
-				<%= link_to image_tag("icons/Door-icon.png"), @user, method: :delete, data: { confirm: "Are you reeeeaaally sure you want to DELETE YOUR PROFILE?"}, class: "right" %>
-			<% end %>
-		</div>
-	</div>
-<!--TODO: add thumbnail -->
 
 		<div class="right user-information">
 			<p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
@@ -24,70 +21,71 @@
 				else
 					"n/a"
 				end
-				%></p>
-			<p>Gender: <%= @user.gender %></p>
-			<p>About: <br> 
-				Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+				%>
 			</p>
+			<p>Gender: <%= @user.gender %></p>
+			<div class="user-edit">
+				<% if @user == current_user %>
+					<%= link_to image_tag("icons/Pencil-icon.png"), edit_user_registration_path, class: "left" %>
+					<%= link_to image_tag("icons/Household-Waste-icon.png"), @user, method: :delete, data: { confirm: "Are you reeeeaaally sure you want to DELETE YOUR PROFILE?"}, class: "left" %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 	
-	<!-- <hr> -->
-	
-<% if @user == current_user %>
-<div class="task-wrapper">
-  <div class="left task-list-part">
-    <h2>Big Tasks</h2>
+	<!--TODO: fix bug: wrong tasks -->
+	<% if @user == current_user %>
+	<div class="task-wrapper">
+		<div class="left task-list-part">
+			<h2>Big Tasks</h2>
 			<% if @tasks["big"] %>
-				<% if @tasks["big"]["daily"].present? %>
-					<div class="gradient task-section">
-						<h3>Daily</h3>
-						<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["daily"] } %>
-					</div>
-				<% end %>
-				<% if @tasks["big"]["weekly"].present? %>
-					<div class="gradient task-section">
-						<h3>Weekly</h3>
-						<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
-					</div>
-				<% end %>
-				<% if @tasks["big"]["monthly"].present? %>
-					<div class="gradient task-section">
-						<h3>Monthly</h3>
-						<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
-					</div>
-				<% end %>
-			<% else %>
-				<p>You don't have any big tasks.</p>
+			<% if @tasks["big"]["daily"].present? %>
+			<div class="gradient task-section">
+				<h3>Daily</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["daily"] } %>
+			</div>
 			<% end %>
-  </div>
+			<% if @tasks["big"]["weekly"].present? %>
+			<div class="gradient task-section">
+				<h3>Weekly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["weekly"] } %>
+			</div>
+			<% end %>
+			<% if @tasks["big"]["monthly"].present? %>
+			<div class="gradient task-section">
+				<h3>Monthly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["big"]["monthly"] } %>
+			</div>
+			<% end %>
+			<% else %>
+			<p>You don't have any big tasks.</p>
+			<% end %>
+		</div>
 	
-  <div class="right task-list-part">
-    <h2>Small Tasks</h2>
+		<div class="right task-list-part">
+			<h2>Small Tasks</h2>
 			<% if @tasks["small"].present? %>
-				<% if @tasks["small"]["daily"].present? %>
-					<div class="gradient task-section">
-						<h3>Daily</h3>
-						<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["daily"] } %>
-					</div>
-				<% end %>
-				<% if @tasks["small"]["weekly"].present? %>
-					<div class="gradient task-section">
-						<h3>Weekly</h3>
-						<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
-					</div>
-				<% end %>
-				<% if @tasks["small"]["monthly"].present? %>
-					<div class="gradient task-section">
-						<h3>Monthly</h3>
-						<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
-					</div>
-				<% end %>
-			<% else %>
-				<p>You don't have any small tasks.</p>
+			<% if @tasks["small"]["daily"].present? %>
+			<div class="gradient task-section">
+				<h3>Daily</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["daily"] } %>
+			</div>
 			<% end %>
-  </div>
-</div>
-<% end %>
-
-<!-- TODO: Get the names away from this list -->
+			<% if @tasks["small"]["weekly"].present? %>
+			<div class="gradient task-section">
+				<h3>Weekly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["weekly"] } %>
+			</div>
+			<% end %>
+			<% if @tasks["small"]["monthly"].present? %>
+			<div class="gradient task-section">
+				<h3>Monthly</h3>
+				<%= render partial: "tasks/task_list", locals: { tasks: @tasks["small"]["monthly"] } %>
+			</div>
+			<% end %>
+			<% else %>
+			<p>You don't have any small tasks.</p>
+			<% end %>
+		</div>
+	</div>
+	<% end %>

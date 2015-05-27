@@ -1,7 +1,7 @@
 <div class="comments-wrap">
 	<div class="stamps-wrap" data-task-id="<%= task.id %>">
 		<% task.comments.each do |comment| %>
-			<%= render partial: "comments/stamp", locals: { comment: comment } %>
+		<%= render partial: "comments/stamp", locals: { comment: comment } %>
 		<% end %>
 	</div>
 	<!-- here is the list to choose from -->
@@ -13,7 +13,7 @@
 	
 		<div class="stamps-menu gradient">
 			<%= form_for task.comments.new, remote: true, namespace: "#{task.id}_comment" do |f| %>	
-				<%= hidden_field_tag "task_id", task.id %>
+			<%= hidden_field_tag "task_id", task.id %>
 			
 			<div class="field">	
 				<%= f.radio_button :image_name, "Depression-icon.png", class: "stamp-radio" %>

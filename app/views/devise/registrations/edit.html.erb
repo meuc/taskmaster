@@ -1,9 +1,9 @@
 <div class="form-wrapper">
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+	<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
-  <%= devise_error_messages! %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
+	<%= devise_error_messages! %>
 	
 	<div class="field">
 		<%= f.label :first_name %>
@@ -15,10 +15,10 @@
 		<%= f.text_field :last_name %>
 	</div>
 	
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.email_field :email, autofocus: true %>
+	</div>
 	
 	<div class="field">
 		<%= f.label :birthdate %>
@@ -35,33 +35,33 @@
 		<%= f.select(:gender) do %>
 			<% [['Other', 'other'], ['Female', 'female'], ['Male', 'male']].each do |c| %>
 				<%= content_tag(:option, c.first, value: c.last, selected: resource.gender.downcase == c.last.downcase) %>
-			<% end %>
+				<% end %>
 		<% end %>
 	</div>
 	<br>
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+	<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+	<% end %>
 	<br>
-  <div class="field">
-    <%= f.label :password %> <!-- <i>(leave blank if you don't want to change it)</i><br /> -->
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :password %> <!-- <i>(leave blank if you don't want to change it)</i><br /> -->
+		<%= f.password_field :password, autocomplete: "off" %>
+	</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation, autocomplete: "off" %>
+	</div>
 
-  <div class="field">
-    <%= f.label :current_password %>* <!-- <i>(we need your current password to confirm your changes)</i> -->
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+	<div class="field">
+		<%= f.label :current_password %>* <!-- <i>(we need your current password to confirm your changes)</i> -->
+		<%= f.password_field :current_password, autocomplete: "off" %>
+	</div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+	<div class="actions">
+		<%= f.submit "Update" %>
+	</div>
+	<% end %>
 
-<%= link_to "Back", user_path(resource) %>
+	<%= link_to "Back", user_path(resource) %>
 </div>

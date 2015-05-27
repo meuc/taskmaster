@@ -1,7 +1,7 @@
 /*
- *= require_tree .
- *= require_self
- */
+*= require_tree .
+*= require_self
+*/
 
 $beige: #f5ede3;
 $blue: #144884;
@@ -57,10 +57,6 @@ header {
 nav {
 	font-family: $text-font;
 	font-weight: bold;
-	
-	@media screen and (max-width: 532px) {
-//		float: left;
-	}
 	
 	.nav-part {
 		width: 40%;
@@ -118,62 +114,58 @@ nav {
 	}
 }
 
-//@media screen and (max-width: 532px) {
-//
-//}
-
 .form-wrapper {
-  background-image: -webkit-linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
-  background-image: linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+	background-image: -webkit-linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
+	background-image: linear-gradient(45deg, rgba(20, 72, 132, .25) 0%,rgba(241, 116, 49, .25) 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
   
-  width: 500px;
-  margin: 1rem auto;
-  padding: 1rem;
-  color: $blue;
+	width: 500px;
+	margin: 1rem auto;
+	padding: 1rem;
+	color: $blue;
     
-  h2 {
-    margin-top: 0;
-    text-align: center;
-  }
+	h2 {
+		margin-top: 0;
+		text-align: center;
+	}
 	
 	a {
 		text-align: center;
 		display: block;
 	}
   
-  .field {
-    width: 350px;
-    margin: 0 auto;
-    position: relative;
+	.field {
+		width: 350px;
+		margin: 0 auto;
+		position: relative;
     
-    input, select {
-      position: absolute;
-      right: 0;
-      width: 150px;
-    }
+		input, select {
+			position: absolute;
+			right: 0;
+			width: 150px;
+		}
     
-    select {
-      border-radius: 0;
-    }
-  }
+		select {
+			border-radius: 0;
+		}
+	}
   
-  .actions {
-    text-align: center;
+	.actions {
+		text-align: center;
 		
-    input {
-      padding: .5rem;
-      margin: 1rem 1rem .5rem;
-      background: $blue;
-      color: $beige;
-      font-size: 1rem;
-      font-family: $display-font;
-      border: none;
-      width: 350px;
+		input {
+			padding: .5rem;
+			margin: 1rem 1rem .5rem;
+			background: $blue;
+			color: $beige;
+			font-size: 1rem;
+			font-family: $display-font;
+			border: none;
+			width: 350px;
 			cursor: pointer;
-    }
-  }
+		}
+	}
 	
 	table {
 		margin: 0 auto;
@@ -195,19 +187,19 @@ nav {
 }
 
 .notice, .alert {	
-		position: fixed;
-		width: 100%;
-		top: 0;
-		left: 0;
-		padding: 1rem;
-		text-align: center;
-		color: white;
-		font-size: 1.5rem;
-		font-family: $display-font;
-		margin: 0;	
-		color: $blue;
-		-webkit-animation: move_out .75s 1s cubic-bezier(.34,-0.6,.6,.47) forwards;
-		animation: move_out .75s 1s cubic-bezier(.34,-0.6,.6,.47) forwards;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding: 1rem;
+	text-align: center;
+	color: white;
+	font-size: 1.5rem;
+	font-family: $display-font;
+	margin: 0;	
+	color: $blue;
+	-webkit-animation: move_out .75s 1s cubic-bezier(.34,-0.6,.6,.47) forwards;
+	animation: move_out .75s 1s cubic-bezier(.34,-0.6,.6,.47) forwards;
 }
 
 .notice {
@@ -356,11 +348,11 @@ a {
 		padding: 1rem;
 		
 		.user-edit {
-			margin-left: 1rem;
 			width: 200px;
 			
 			a img {
-				width: 50px;
+				width: 30px;
+				margin-right: 1rem;
 			}
 		}
 		
@@ -412,8 +404,12 @@ a {
 			}
 		}
 		
-		img {
+		.group-member {
+			background-size: cover;
+			background-position: center center;
 			width: 100px;
+			height: 100px;
+			//			border: 1px solid;
 			margin-bottom: 10px;
 		}
 	}
@@ -455,7 +451,7 @@ a {
 	list-style: none;
 	padding-left: 0;
 	
-//	TODO: make my own checkboxes maybe...
+	//	TODO: make my own checkboxes maybe...
 	
 	li {
 		margin-bottom: 9px;
@@ -481,7 +477,6 @@ a {
 		}
 	}
 	
-//	TODO: make this individual pictures
 	.assigned-user-thumbnail {
 		margin-bottom: -6px;
 		width: 25px;
@@ -573,5 +568,9 @@ footer {
 	p {
 		color: $beige;
 		margin: 0;
+	}
+	
+	a {
+		color: $beige;
 	}
 }

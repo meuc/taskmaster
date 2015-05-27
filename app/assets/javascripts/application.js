@@ -20,19 +20,19 @@ $(function(){
 		var id = $(this).attr("data-task-id");
 		
 		// AJAX
-		 $.ajax({
-			 // browsers only support get and post
-		   type: "POST",
-		   url: "/tasks/"+id+"/toggle_completed",
-		   dataType: "json",
-			 // Ruby says, patch is the right thing, so we change it like this:
-		   data: {
-		     _method: "PATCH"
-		   },
-			 error: function () {
-				 alert("Error toggling task");
-			 }
-		 });
+		$.ajax({
+			// browsers only support get and post
+			type: "POST",
+			url: "/tasks/"+id+"/toggle_completed",
+			dataType: "json",
+			// Ruby says, patch is the right thing, so we change it like this:
+			data: {
+				_method: "PATCH"
+			},
+			error: function () {
+				alert("Error toggling task");
+			}
+		});
 	});
 	
 	$(document).on("click", ".profile", function(e) {
@@ -41,7 +41,7 @@ $(function(){
 	});
 	
 	$(document).on("click", "#Check_all", function() {
-	    $('input:checkbox').not(this).prop('checked', this.checked);
+		$('input:checkbox').not(this).prop('checked', this.checked);
 	});
 	
 	$(document).on("click", ".stamp", function() {

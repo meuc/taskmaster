@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Habitat</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Habitat</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 	<link href='//fonts.googleapis.com/css?family=Arvo:700|Ubuntu:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body class="gradient">
-<!-- TODO: make this not show up, when there is nothing happening!! -->
+	<!-- TODO: make this not show up, when there is nothing happening!! -->
 
-<% if notice.present? || alert.present? %>
- 	<p class="notice gradient"><%= notice %></p>
- 	<p class="alert gradient"><%= alert %></p>
-<% end %>
+	<% if notice.present? || alert.present? %>
+		<p class="notice gradient"><%= notice %></p>
+		<p class="alert gradient"><%= alert %></p>
+	<% end %>
 	
 	
 	<header>
@@ -38,8 +38,8 @@
 				<% if current_user.group? %>
 					<a href="#">Graph</a>
 				<% end %>
-				</div>
-				<% end %>
+			</div>
+			<% end %>
 		</nav>
 		
 		<a href="/"><%= image_tag "logo.png", alt: "Logo", class: "logo" %></a>
@@ -50,10 +50,12 @@
 	</div>
 	
 	<footer>
+		<a href="#" class="left">Contact</a>
+		<a href="#" class="right">Donate</a>
 		<div>
 			<p>Final project | <i>Multimedia Design &amp; Communication '15</i></p>
 			<p>&copy; Marie Crabit | 2015</p>
 		</div>
-</footer>
+	</footer>
 </body>
 </html>
