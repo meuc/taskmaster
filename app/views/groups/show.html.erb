@@ -7,7 +7,11 @@
 	<% @group.users.each do |user| %>
 	<li>
 		<!--TODO: make bg image -->
-		<div class="group-member" style="background-image: url(<%= image_path user.avatar.url %>);"></div>
+		<div class="group-member" style="background-image: url(<%= image_path user.avatar.url %>);">
+			<% if user == @group.users.all.sort_by(&:total_score).last %>
+				<%= image_tag "icons/Crown-icon.png", class: "crown" %>
+			<% end %>
+		</div>
 		<h3><%= link_to "#{user.first_name}", user %></h3>
 		<h4>Score: <%= user.total_score %></h4>
 	</li>
@@ -21,8 +25,8 @@
 			<%= link_to "Your task list", tasks_path, class: "right" %>
 		</div>
 		<div class="link-with-icon">
-			<%= image_tag "icons/Bar-Chart-5-icon.png", alt: "Progress Graph", class: "right" %>
-			<a href="#" class="">See progress graph</a>
+			<%= link_to image_tag("icons/Bar-Chart-5-icon.png"), graphs_path, class: "right" %>
+			<%= link_to "Graph", graphs_path, class: "right" %>
 		</div>
 	</div>
 

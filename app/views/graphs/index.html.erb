@@ -7,6 +7,7 @@
 		<p>Last at the moment is <%= @users.all.sort_by(&:total_score).first.first_name %> with only <%= @users.all.sort_by(&:total_score).first.total_score %> points. Hang in there!</p>
 		<% else %>
 			<h2>Let's get started everybody! Gather up points!</h2>
-		<% end %>		
+		<% end %>
+		<i>The one with the most points at the end of the month should get a reward from the whole group.</i>		
 	</div>
 </div>

@@ -411,6 +411,16 @@ a {
 			height: 100px;
 			//			border: 1px solid;
 			margin-bottom: 10px;
+			position: relative;
+			
+			.crown {
+				position: absolute;
+				width: 45px;
+				top: -30px;
+				right: -1rem;
+				-webkit-transform: rotate(25deg);
+				transform: rotate(25deg);
+			}
 		}
 	}
 }
