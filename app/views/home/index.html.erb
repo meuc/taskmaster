@@ -10,16 +10,16 @@
 		<div class="gradient left">
 			<h3>Welcome back, <%= current_user.first_name %>!</h3>
 		</div>
-		<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "right button" %>
+		<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "right button log-out" %>
 	</div>
 	<% else %>
-	<div class="welcome-wrap">
+	<div class="welcome-wrap logged-out-info">
 		<div class="gradient left">
 			<h3>Hi, you are my best guest ever!</h3>
 			<p>Don't remain just a guest, become a part of this and improve your life!</p>			
 		</div>
 			
-		<div class="signup-signin right gradient">
+		<div class="signup-signin right gradient logged-out-controls">
 			<%= link_to "Log in", new_user_session_path, class: "left button" %>
 			<%= link_to "Sign up", new_user_registration_path, class: "right button" %>
 		</div>

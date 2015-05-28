@@ -52,6 +52,10 @@ header {
 		float: right;
 		margin-top: -10px;
 	}
+	
+	@media screen and (max-width: 365px) {
+		width: 80px;
+	}
 }
 
 nav {
@@ -105,6 +109,10 @@ nav {
 			top: 20px;
 			display: none;
 			
+			@media screen and (max-width: 732px) {
+				background: rgba(245, 237, 227, .75);
+			}
+			
 			a {
 				display: block;
 				text-transform: capitalize;
@@ -124,6 +132,19 @@ nav {
 	margin: 1rem auto;
 	padding: 1rem;
 	color: $blue;
+	
+	@media screen and (max-width: 715px) {
+		width: 80%;
+	}
+	
+	@media screen and (max-width: 635px) {
+		width: 100%;
+	}
+	
+	@media screen and (max-width: 515px) {
+		width: 130%;
+		margin-left: -15%;
+	}
     
 	h2 {
 		margin-top: 0;
@@ -139,6 +160,11 @@ nav {
 		width: 350px;
 		margin: 0 auto;
 		position: relative;
+		
+		@media screen and (max-width: 400px) {
+			display: block;
+			width: 100%;
+		}
     
 		input, select {
 			position: absolute;
@@ -154,6 +180,9 @@ nav {
 	.actions {
 		text-align: center;
 		
+		@media screen and (max-width: 715px) {
+			width: 80%;
+		}
 		input {
 			padding: .5rem;
 			margin: 1rem 1rem .5rem;
@@ -164,6 +193,11 @@ nav {
 			border: none;
 			width: 350px;
 			cursor: pointer;
+			
+			@media screen and (max-width: 715px) {
+				width: 113%;
+			}
+
 		}
 	}
 	
@@ -265,8 +299,8 @@ a {
 	}
 	
 	@media screen and (max-width: 545px) {
-		width: 140%;
-		margin-left: -20%;
+		width: 130%;
+		margin-left: -15%;
 	}
 	
 	@media screen and (max-width: 420px) {
@@ -277,16 +311,45 @@ a {
 .introduction {
 	padding: 1rem;
 	max-width: 1500px;
+	
+	@media screen and (max-width: 545px) {
+		width: 130%;
+		margin-left: -15%;
+	}
 }
 
 .welcome-wrap {
 	overflow: hidden;
 	max-width: 1500px;
 	
+	@media screen and (max-width: 545px) {
+		width: 130%;
+		margin-left: -15%;
+	}
+	
+	&.logged-out-info {
+		
+		div.gradient.left {
+			@media screen and (max-width: 1020px) {
+			width: 100%;
+		}
+		}
+		
+	}
+	
 	
 	div.gradient.left {
 		width: calc(70% - 1rem);
 		margin-right: 1rem;
+		
+		@media screen and (max-width: 545px) {
+			width: calc(80% - 1rem);
+		}
+		
+		@media screen and (max-width: 477px) {
+			width: 100%;
+		}
+		
 		
 		h3 {
 			margin: 0;
@@ -295,6 +358,12 @@ a {
 		p {
 			margin: 0;
 			margin-top: 11px;
+		}
+	}
+	
+	.log-out {
+		@media screen and (max-width: 477px) {
+			display: none;
 		}
 	}
 	
@@ -307,6 +376,13 @@ a {
 			
 			&:first-child {
 				margin-right: 1rem;
+			}
+		}
+		
+		&.logged-out-controls {
+			@media screen and (max-width: 1021px) {
+				width: 100%;
+				margin-top: 1rem;
 			}
 		}
 	}
@@ -347,6 +423,12 @@ a {
 		overflow: hidden;
 		padding: 1rem;
 		
+		@media screen and (max-width: 545px) {
+			width: 130%;
+			margin-left: -15%;
+			text-align: center;
+		}
+		
 		.user-edit {
 			width: 200px;
 			
@@ -356,33 +438,78 @@ a {
 			}
 		}
 		
-		.profile-picture {
-			width: 200px;
-			height: 200px;
-			background-size: cover;
-			background-position: center center;
-			margin: 1rem;
-			border: 1px solid;
-			position: relative;
-			
-			.cake {
-				position: absolute;
-				bottom: 0;
-				right: 0;
+		.profile-image-wrap {
+			@media screen and (max-width: 655px) {
+				width: 100%;
+			}
+		
+			.profile-picture {
+				width: 200px;
+				height: 200px;
+				background-size: cover;
+				background-position: center center;
+				margin: 1rem;
+				border: 1px solid;
+				position: relative;
+				
+				@media screen and (max-width: 655px) {
+					margin: 0 auto;
+				}
+				
+				.cake {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+				}
 			}
 		}
 		
 		.user-information {
 			width: 50%;
+			
+			@media screen and (max-width: 655px) {
+				width: 100%;
+				text-align: center;
+			}
 		}
 	}
 }
 
 .task-wrapper {
 	overflow: hidden;
+	
+	@media screen and (max-width: 1000px) {
+		width: 120%;
+		margin-left: -10%;
+	}
+	
+	@media screen and (max-width: 820px) {
+		width: 130%;
+		margin-left: -15%;
+	}
+	
+	
 		
 	.task-list-part {
 		width: 50%;
+		
+		@media screen and (max-width: 740px) {
+			width: 70%;
+			float: none;
+			margin: 0 auto;
+		}
+		
+		@media screen and (max-width: 560px) {
+			width: 90%;
+		}
+		
+		@media screen and (max-width: 470px) {
+			width: 100%;
+		}
+		
+		h2 {
+			margin-left: 1rem;
+		}
 				
 		.task-list {
 			width: 100%;
@@ -434,6 +561,12 @@ a {
 
 .group-buttons-wrapper {
 	overflow: hidden;
+	
+	.right {
+		@media screen and (max-width: 470px) {
+			float: left;
+		}
+	}
 }
 
 .link-with-icon {
@@ -451,10 +584,17 @@ a {
 		width: 50px;
 		height: 50px;
 	}
+	
 }
 
 .task-list-icon-wrapper {
 	overflow: hidden;
+	
+	.right {
+		@media screen and (max-width: 468px) {
+			float: left;
+		}
+	}
 }
 
 .task-section {
@@ -576,11 +716,39 @@ a {
 
 .graph-wrapper {
 	overflow: hidden;
-	#graph {
-//		display: block;
+	
+	@media screen and (max-width: 1000px) {
+		width: 130%;
+		margin-left: -15%;
 	}
+	
+	#graph {
+		display: block;
+		margin: 1rem;
+		
+		@media screen and (max-width: 655px) {
+			float: none;
+		}
+	}
+	
 	.graph-text {
 		width: 60%;
+		
+		@media screen and (max-width: 1070px) {
+			width: 50%;
+		}
+		
+		@media screen and (max-width: 830px) {
+			width: 300px;
+			margin-right: 1rem;
+			display: block;
+		}
+		
+		@media screen and (max-width: 655px) {
+			width: 90%;
+			float: none;
+			margin: 1rem;
+		}
 	}
 }
 
@@ -599,5 +767,12 @@ footer {
 	
 	a {
 		color: $beige;
+	}
+	
+	.footer-link-wrap {
+		@media screen and (max-width: 640px) {
+			overflow: hidden;
+			margin-bottom: 1rem;
+		}
 	}
 }

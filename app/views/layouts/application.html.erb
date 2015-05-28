@@ -10,8 +10,6 @@
 </head>
 
 <body class="gradient" data-no-turbolink>
-	<!-- TODO: make this not show up, when there is nothing happening!! -->
-
 	<% if notice.present? || alert.present? %>
 		<p class="notice gradient"><%= notice %></p>
 		<p class="alert gradient"><%= alert %></p>
@@ -51,8 +49,10 @@
 	</div>
 	
 	<footer>
-		<a href="#" class="left">Contact</a>
-		<%= link_to 'Donate', page_path('donate'), class: "right" %>
+		<div class="footer-link-wrap">
+			<a href="#" class="left">Contact</a>
+			<%= link_to 'Donate', page_path('donate'), class: "right" %>
+		</div>
 		<div>
 			<p>Final project | <i>Multimedia Design &amp; Communication '15</i></p>
 			<p>&copy; Marie Crabit | 2015</p>

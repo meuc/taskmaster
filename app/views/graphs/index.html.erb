@@ -1,13 +1,17 @@
 <div class="graph-wrapper">
 	<canvas id="graph" class="left" width="300" height="300"></canvas>
+	
 	<div class="graph-text right">
 		<% if @users.map(&:total_score).reduce(0, :+) != 0 %>
 		<h2>Looks like <%= @users.all.sort_by(&:total_score).last.first_name %> has the leading score!</h2>
+		
 		<p><%= @users.all.sort_by(&:total_score).last.first_name %> is up first with <%= @users.all.sort_by(&:total_score).last.total_score %> points.</p>
+		
 		<p>Last at the moment is <%= @users.all.sort_by(&:total_score).first.first_name %> with only <%= @users.all.sort_by(&:total_score).first.total_score %> points. Hang in there!</p>
 		<% else %>
 			<h2>Let's get started everybody! Gather up points!</h2>
 		<% end %>
+		
 		<i>The one with the most points at the end of the month should get a reward from the whole group.</i>		
 	</div>
 </div>
