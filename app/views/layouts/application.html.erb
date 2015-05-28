@@ -8,7 +8,7 @@
 	<link href='//fonts.googleapis.com/css?family=Arvo:700|Ubuntu:400,700' rel='stylesheet' type='text/css'>
 </head>
 
-<body class="gradient">
+<body class="gradient" data-no-turbolink>
 	<!-- TODO: make this not show up, when there is nothing happening!! -->
 
 	<% if notice.present? || alert.present? %>
@@ -36,7 +36,7 @@
 				</div>
 				<!--TODO: make it only show if user has group -->
 				<% if current_user.group? %>
-					<a href="#">Graph</a>
+					<%= link_to "Graph", graphs_path%>
 				<% end %>
 			</div>
 			<% end %>
