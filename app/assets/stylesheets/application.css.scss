@@ -363,6 +363,13 @@ a {
 			background-position: center center;
 			margin: 1rem;
 			border: 1px solid;
+			position: relative;
+			
+			.cake {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
 		}
 		
 		.user-information {
