@@ -11,4 +11,13 @@ class ApplicationController < ActionController::Base
       u.permit(:first_name, :last_name, :birthdate, :gender, :email, :password)
     }
   end
+  
+  private
+  
+  def require_group!
+    unless current_user.group?
+      flash[:alert] = "You're not part of a group"
+      redirect_to new_group_path
+    end
+  end
 end

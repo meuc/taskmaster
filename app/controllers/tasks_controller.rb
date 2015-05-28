@@ -87,13 +87,4 @@ class TasksController < ApplicationController
     
     render json: task
   end
-  
-  private
-  
-  def require_group!
-    unless current_user.group?
-      flash[:alert] = "You're not part of a group"
-      redirect_to new_group_path
-    end
-  end
 end

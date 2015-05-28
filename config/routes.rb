@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users 
   resources :groups, only: [:new, :create, :show, :destroy]
   resources :comments
+  resources :graphs, only: [:index]
   
   delete "/groups/:id/leave", to: "groups#leave", as: "leave_group"
   get "/groups/:id/choose_user", to: "groups#choose_user", as: "choose_user"
