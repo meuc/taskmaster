@@ -25,7 +25,7 @@ class Task < ActiveRecord::Base
     if completed_at?
       Score.create! user_id: user.id, points: points_worth
     else
-      # TODO: make this
+      Score.where(user_id: user.id, points: points_worth).order(created_at: :desc).first.destroy!
     end
   end
   

@@ -3,6 +3,8 @@ class GraphsController < ApplicationController
   before_action :require_group!
   
   def index
+    @users = current_user.group.users
+    
     respond_to do |format|
       format.html {}
       format.json {

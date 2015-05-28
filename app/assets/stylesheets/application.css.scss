@@ -557,9 +557,14 @@ a {
 	}
 }
 
-#graph {
-	margin: 2rem auto;
-	display: block;
+.graph-wrapper {
+	overflow: hidden;
+	#graph {
+//		display: block;
+	}
+	.graph-text {
+		width: 60%;
+	}
 }
 
 footer {
