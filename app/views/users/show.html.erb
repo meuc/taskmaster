@@ -7,8 +7,10 @@
 		<div class="left profile-image-wrap">
 			<div class="profile-picture" style="background-image: url(<%= image_path @user.avatar.url %>);">
 				<!--TODO: correct to only compare day and month -->
+				<% if @user.birthdate.present? %>
 				<% if @user.birthdate.day == Date.today.day && @user.birthdate.month == Date.today.month %>
 					<%= image_tag "icons/Birthday-Cake-icon.png", class: "cake" %>
+				<% end %>
 				<% end %>
 			</div>		
 		</div>

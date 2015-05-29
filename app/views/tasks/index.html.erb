@@ -4,6 +4,9 @@
 		<%= link_to "Add new task", new_task_path, class: "left" %>
 	</div>
 	
+	<%= link_to "Edit task assignment", edit_assignments_path, class: "left" %>
+	<%= link_to "Autoassign tasks", auto_assignments_path, class: "left", disabled: @group.auto_assigned_at? %>
+	
 	<div class="link-with-icon right">
 		<%= link_to image_tag("icons/Speach-Bubble-icon.png"), new_task_path, class: "right comment-toggler" %>
 		<%= link_to "Show comments", new_task_path, class: "right comment-toggler" %>
@@ -13,7 +16,6 @@
 <!-- TODO: show all controls button when there is a touchscreen involved -->
 
 <div class="task-wrapper">
-<!-- TODO: me no satisfied... -->
   <div class="left task-list-part">
     <h2>Big Tasks</h2>
     <% if @tasks["big"] %>

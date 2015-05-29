@@ -5,16 +5,18 @@
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
+	<%= analytics_init if Rails.env.production? %>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='//fonts.googleapis.com/css?family=Arvo:700|Ubuntu:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body class="gradient" data-no-turbolink>
-	<% if notice.present? || alert.present? %>
+	<% if notice.present? %>
 		<p class="notice gradient"><%= notice %></p>
+	<% end %>
+	<% if alert.present? %>	
 		<p class="alert gradient"><%= alert %></p>
 	<% end %>
-	
 	
 	<header>
 		<nav>

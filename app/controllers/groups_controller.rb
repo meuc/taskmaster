@@ -18,13 +18,11 @@ class GroupsController < ApplicationController
       User.find_by_email(email)
     end
 
-    if @group.valid? && users.all?(&:present?)
+    if @group.valid? && users.all?(&:present?) 
       @group.save
       current_user.update!(group_id: @group.id)
-
-      users.each do |user|
-        user.update(group_id: @group.id)
-      end
+      
+      add_valid_users_to_group(users)
 
       if params[:add_suggested_tasks]
         redirect_to tasks_add_suggested_path
@@ -77,7 +75,7 @@ class GroupsController < ApplicationController
     redirect_to root_path
   end
   
-  def choose_user  
+  def choose_user
   end
   
   def add_user
@@ -87,14 +85,12 @@ class GroupsController < ApplicationController
       User.find_by_email(email)
     end
 
-    if users.all?(&:present?)
-      users.each do |user|
-        user.update(group_id: @group.id)
-      end
-      
+    if users.all?(&:present?)  
       @group.tasks.each do |task|
         task.update(user_id: nil)
       end
+      
+      add_valid_users_to_group(users)
       
       @group.tasks.each do |task|
         task.assign_user
@@ -106,6 +102,23 @@ class GroupsController < ApplicationController
       render :choose_user
     end
   end
+  
+  private
+  
+  def add_valid_users_to_group(users)
+    users_with_group = []
+    
+    users.each do |user|
+      if user.group.blank?
+        user.update(group_id: @group.id)
+      else
+        users_with_group << user
+      end       
+    end
+    
+    if users_with_group.size > 0
+      names = users_with_group.map(&:first_name).to_sentence
+      flash[:alert] = "#{names} already had groups and thus were not added."
+    end
+  end
 end
-
-# TODO: remove create group link on create group page or make less prominent

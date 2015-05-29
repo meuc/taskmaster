@@ -218,6 +218,17 @@ nav {
 		font-family: $text-font;
 		text-shadow: none;
 	}
+	
+	.current-password-required-field {
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
+		width: 30%;
+		margin: 0 auto;
+		
+		label, input {
+			
+		}
+	}
 }
 
 .notice, .alert {	
@@ -243,8 +254,6 @@ nav {
 .alert {
 	border-top: 1rem red solid;
 	color: red;
-	display: none;
-	
 }
 
 @-webkit-keyframes move_out {
@@ -275,6 +284,12 @@ a {
 	
 	&:hover {
 		text-shadow: 0 0 10px $beige;
+	}
+	
+	&[disabled] {
+		pointer-events: none;
+		text-decoration: none;
+		opacity: .5;
 	}
 }
 
@@ -398,8 +413,17 @@ a {
 	border: none;
 }
 
+.field_with_errors {
+	display: inline-block;
+}
+
 .field_with_errors input {
-	border: 2px solid red;
+		border: 1px solid red;
+}
+
+.field_with_errors label {
+	float: left;
+	color: red;
 }
 
 .field {

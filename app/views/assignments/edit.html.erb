@@ -1,0 +1,13 @@
+<%= form_tag assignments_path, method: :put do |f| %>
+	<% @tasks.each do |task| %>
+		<div class="field">
+			<%= label_tag "task[#{task.id}]", task.name %>
+			
+			<%= select_tag "task[#{task.id}]", options_for_select(task.group.users.map { |user| ["#{user.first_name} #{user.last_name}", user.id] }, ["#{task.user.first_name} #{task.user.last_name}", task.user.id]) %>
+		</div>
+	<% end %>
+	
+	<div class="actions">
+		<%= submit_tag "Update tasks" %>
+	</div>
+<% end %>

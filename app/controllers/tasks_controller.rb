@@ -26,6 +26,7 @@ class TasksController < ApplicationController
   
   def index
     @tasks = Grouper.new(current_user.group.tasks).group_by(:size, :interval)
+    @group = current_user.group
   end
   
   def destroy

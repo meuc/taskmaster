@@ -10,21 +10,21 @@
 	<div class="field">
 		<br><label><b>Add people by email address.</b></label>
 	</div>
+	<br>
 	<div class="field">
 		<%= label_tag :users %>
-		
 		<div class="adding-fields">
 			<div class="add-user-field">
 				<%= text_field_tag "users[]" %>
-				<button type="button">Remove</button>
+				<button type="button" class="add-remove-extra-user-field">Remove</button>
 			</div>
 		</div>
 		
-		<button type="button" class="add-user-button">Add user field</button>
+		<button type="button" class="add-user-button add-user-button add-remove-extra-user-field">Add more</button>
 	</div>
 	<br>
 	<div class="field">
-		<%= label_tag :add_suggested_tasks %>?
+		<%= label_tag :add_suggested_tasks, "Add suggested tasks", title: "YO!" %>?
 		<%= check_box_tag :add_suggested_tasks %>
 	</div>
 		

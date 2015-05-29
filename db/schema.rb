@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527204644) do
+ActiveRecord::Schema.define(version: 20150529222623) do
 
   create_table "comments", force: true do |t|
     t.string   "image_name"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 20150527204644) do
   end
 
   create_table "groups", force: true do |t|
-    t.string "name"
+    t.string   "name"
+    t.datetime "auto_assigned_at"
   end
 
   create_table "scores", force: true do |t|
