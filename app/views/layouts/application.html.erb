@@ -35,7 +35,6 @@
 					<%= link_to "See profile", current_user%>
 					<%= link_to "Log out", destroy_user_session_path, method: :delete, :class => "log-out" %>
 				</div>
-				<!--TODO: make it only show if user has group -->
 				<% if current_user.group? %>
 					<%= link_to "Graph", graphs_path %>
 				<% end %>
@@ -43,7 +42,7 @@
 			<% end %>
 		</nav>
 		
-		<a href="/"><%= image_tag "logo.png", alt: "Logo", class: "logo" %></a>
+		<a href="/" class="logo"><%= image_tag "logo.png", alt: "Logo" %></a>
 	</header>
 	
 	<div class="main">
