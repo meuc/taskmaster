@@ -29,9 +29,6 @@ $(function(){
 			// Ruby says, patch is the right thing, so we change it like this:
 			data: {
 				_method: "PATCH"
-			},
-			error: function () {
-				alert("Error toggling task");
 			}
 		});
 	});
