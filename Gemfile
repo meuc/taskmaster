@@ -54,3 +54,5 @@ gem "paperclip", "~> 4.2"
 gem 'high_voltage', '~> 2.3.0'
 
 gem 'google-analytics-rails'
+
+gem 'mail_form'
