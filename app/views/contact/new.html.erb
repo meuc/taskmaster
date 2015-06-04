@@ -1,0 +1,25 @@
+<%= form_tag contact_path, method: :post do %>
+  <div class="field">
+    <%= label_tag "Your name" %>
+    <%= text_field_tag "Your name", nil, name: "name" %>
+  </div>
+
+  <div class="field">
+    <%= label_tag "Your email" %>
+    <%= text_field_tag "Your email", nil, name: "email" %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :subject %>
+    <%= text_field_tag :subject %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :body %>
+    <%= text_area_tag :body %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Send" %>
+  </div>
+<% end %>

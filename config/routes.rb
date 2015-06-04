@@ -24,5 +24,8 @@ Rails.application.routes.draw do
   end
   # same as the post stuff, just nicer in this case
 
+  get "/contact", to: "contact#new"
+  post "/contact", to: "contact#create"
+
   root to: "home#index"
 end
